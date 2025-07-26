@@ -19,7 +19,7 @@ async function runRelease() {
     execSync(`npm version ${versionType}`, { stdio: 'inherit' });
 
     console.log('Building project...');
-    execSync('npm run build', { stdio: 'inherit' });
+    execSync('npm run rollup -c --bundleConfigAsCjs', { stdio: 'inherit' });
 
     console.log('Publishing package...');
     execSync('npm publish --access public', { stdio: 'inherit' });

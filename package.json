@@ -6,11 +6,10 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
     "release": "node release.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Skenas Team",
   "license": "ISC",
