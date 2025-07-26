@@ -1,0 +1,56 @@
+{
+  "name": "@nikaat-corp/wheel-datepicker",
+  "version": "0.0.7",
+  "description": "A modern, customizable wheel datepicker component for React applications, offering intuitive date selection with a smooth scrolling interface.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "rollup": "rollup -c --bundleConfigAsCjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Skenas Team",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.3.3",
+    "react": "^18.3.1",
+    "rollup": "^4.18.1",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piyush-eon/react-toast-popup.git"
+  },
+  "keywords": [
+    "react",
+    "datepicker",
+    "wheel",
+    "date-picker",
+    "react-component",
+    "date",
+    "picker",
+    "scroll",
+    "customizable",
+    "ui"
+  ],
+  "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "react-icons": "^5.2.1",
+    "uuid": "^10.0.0"
+  },
+  "peerDependencies": {
+  "react": "^18.0.0",
+  "react-dom": "^18.0.0"
+}
+}
