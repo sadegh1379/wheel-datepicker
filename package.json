@@ -6,7 +6,8 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "rollup": "rollup -c --bundleConfigAsCjs",
+    "build": "rollup -c --bundleConfigAsCjs",
+    "release": "node release.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Skenas Team",
@@ -46,11 +47,12 @@
   ],
   "dependencies": {
     "@types/uuid": "^10.0.0",
+    "inquirer": "^8.2.6",
     "react-icons": "^5.2.1",
     "uuid": "^10.0.0"
   },
   "peerDependencies": {
-  "react": "^18.0.0",
-  "react-dom": "^18.0.0"
-}
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
 }
