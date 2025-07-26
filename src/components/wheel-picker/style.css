@@ -1,0 +1,95 @@
+.wd-relative {
+  position: relative;
+}
+.wd-overflow-y-scroll {
+  overflow-y: scroll;
+}
+.wd-scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.wd-scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.wd-scroll-snap-y {
+  scroll-snap-type: y mandatory;
+}
+.wd-scroll-snap-mandatory {
+  scroll-snap-type: mandatory;
+}
+.wd-flex {
+  display: flex;
+}
+.wd-items-center {
+  align-items: center;
+}
+.wd-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.wd-justify-center {
+  justify-content: center;
+}
+.wd-scroll-snap-align-center {
+  scroll-snap-align: center;
+}
+.wd-transition-all {
+  transition-property: all;
+}
+.wd-duration-200 {
+  transition-duration: 200ms;
+}
+.wd-font-semibold {
+  font-weight: 600;
+}
+.wd-text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.wd-text-gray-400 {
+  color: #9ca3af;
+}
+.wd-dark\:text-gray-700 {
+  color: #374151;
+}
+.wd-text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.wd-cursor-pointer {
+  cursor: pointer;
+}
+.wd-absolute {
+  position: absolute;
+}
+.wd-left-0 {
+  left: 0;
+}
+.wd-right-0 {
+  right: 0;
+}
+.wd-border-t {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: inherit;
+}
+.wd-border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: inherit;
+}
+.wd-border-gray-300 {
+  border-color: #d1d5db;
+}
+.wd-dark\:border-gray-700 {
+  border-color: #374151;
+}
+.wd-pointer-events-none {
+  pointer-events: none;
+}
+.dark .wd-dark\:text-gray-700 {
+  color: #374151;
+}
+.dark .wd-dark\:border-gray-700 {
+  border-color: #374151;
+}
