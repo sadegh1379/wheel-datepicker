@@ -44,8 +44,34 @@
 }
 
 .wd-modal-bottom {
-  align-self: flex-end;
-  margin-bottom: 2rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: #fff;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.2);
+  animation: slideUp 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1050;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.wd-modal-bottom .wd-modal-header {
+  border-radius: 16px 16px 0 0;
 }
 
 .wd-modal-header {
