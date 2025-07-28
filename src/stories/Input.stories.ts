@@ -21,6 +21,18 @@ const meta = {
     error: {
       control: { type: 'text' },
     },
+    className: {
+      control: { type: 'text' },
+    },
+    value: {
+      control: { type: 'text' },
+    },
+    name: {
+      control: { type: 'text' },
+    },
+    readonly: {
+      control: { type: 'boolean' },
+    },
   },
 } satisfies Meta<typeof Input>;
 

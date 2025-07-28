@@ -1,3 +1,5 @@
+import React from "react";
+
 interface WheelPickerProps {
   items: string[];
   onChange?: (item: string) => void;
@@ -21,11 +23,13 @@ interface InputProps {
   onClick?: () => void
 }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
   variant?: 'primary' | 'secondary' | 'outline';
   className?: string;
-  children: React.ReactNode;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  text: React.ReactNode
 }
 
 interface ModalProps {
@@ -49,6 +53,8 @@ interface DatepickerProps {
     >;
     inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
     modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children' | 'placement'>;
+    buttonProps?: Omit<ButtonProps, 'onClick'>
+    
 }
 
 export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps }

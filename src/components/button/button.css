@@ -32,45 +32,10 @@
   font-size: 1rem;
 }
 
-/* Style variants */
-.wd-button-primary {
-  background-color: #3b82f6;
-  color: #ffffff;
-}
-
-.wd-button-primary:hover:not(:disabled) {
-  background-color: #2563eb;
-}
-
-.wd-button-primary:active:not(:disabled) {
-  background-color: #1d4ed8;
-}
-
-.wd-button-secondary {
-  background-color: #6b7280;
-  color: #ffffff;
-}
-
 .wd-button-secondary:hover:not(:disabled) {
   background-color: #4b5563;
 }
 
 .wd-button-secondary:active:not(:disabled) {
   background-color: #374151;
-}
-
-.wd-button-outline {
-  background-color: transparent;
-  color: #3b82f6;
-  border: 1px solid #3b82f6;
-}
-
-.wd-button-outline:hover:not(:disabled) {
-  background-color: #3b82f6;
-  color: #ffffff;
-}
-
-.wd-button-outline:active:not(:disabled) {
-  background-color: #2563eb;
-  border-color: #2563eb;
 }

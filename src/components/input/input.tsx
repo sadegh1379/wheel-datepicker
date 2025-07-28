@@ -3,7 +3,7 @@ import './input.css';
 import { InputProps } from '../types';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, className = '', ...props }, ref) => {
+  ({ label, error, className = '', value, ...props }, ref) => {
     return (
       <div className={`wd-input-container ${className}`}>
         {label && (
@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           readOnly
           className={`wd-input-field ${error ? 'wd-input-error' : ''}`}
           type="text"
+          value={value}
           {...props}
         />
         {error && (

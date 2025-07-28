@@ -32,7 +32,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   className,
   inputProps,
   wheelPickerProps,
-  modalProps
+  modalProps,
+  buttonProps
 }) => {
   // parse initial value or fallback to today
   const initial = useMemo(() => {
@@ -77,13 +78,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
 
   // when value or defaultValue prop changes, update selected and temp
   useEffect(() => {
-    let m: moment.Moment | null = null;
     if (value && moment(value, WHEEL_DATE_FORMAT, true).isValid()) {
-      m = moment(value, WHEEL_DATE_FORMAT);
-    } else {
-      m = moment().locale('fa');
-    }
-    if (m) {
+      const m = moment(value, WHEEL_DATE_FORMAT);
       setSelected({
         year: m.jYear(),
         month: m.jMonth() + 1,
@@ -122,6 +118,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
     const m = moment(`${selected.year}/${selected.month}/${selected.day}`, 'jYYYY/jM/jD').locale(
       'fa'
     );
+   
     return m.format(WHEEL_DATE_FORMAT);
   }, [selected]);
 
@@ -169,9 +166,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
               {...wheelPickerProps}
             />
           </div>
-          <Button className="wd-datepicker-confirm-button" size="medium" onClick={handleSet}>
-            تایید
-          </Button>
+          <Button className="wd-datepicker-confirm-button"  size="medium" onClick={handleSet}  text="تایید" {...buttonProps}/>
         </div>
       </Modal>
     </>

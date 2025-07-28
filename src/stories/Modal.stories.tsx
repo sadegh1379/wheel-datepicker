@@ -2,20 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { useState } from 'react';
 import Modal from '../components/modal/modal';
 import Button from '../components/button/button';
-
-// Only the props you want to control via Storybook
-interface ModalStoryArgs {
-  placement?: 'top' | 'bottom' | 'center';
-  title?: string;
-  className?: string;
-}
+import { ModalProps } from '../components/types';
 
 // Wrapper component to handle modal state
-const ModalWrapper: React.FC<React.PropsWithChildren<ModalStoryArgs>> = ({ children, ...props }) => {
+const ModalWrapper: React.FC<React.PropsWithChildren<ModalProps>> = ({ children, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+      <Button text="open modal" onClick={() => setIsOpen(true)}/>
       <Modal {...props} isOpen={isOpen} onClose={() => setIsOpen(false)}>
         {children}
       </Modal>
@@ -23,7 +17,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalStoryArgs>> = ({ child
   );
 };
 
-const meta: Meta<ModalStoryArgs> = {
+const meta: Meta<ModalProps> = {
   title: 'Components/Modal',
   component: ModalWrapper,
   parameters: {
@@ -45,7 +39,7 @@ const meta: Meta<ModalStoryArgs> = {
 };
 
 export default meta;
-type Story = StoryObj<ModalStoryArgs>;
+type Story = StoryObj<ModalProps>;
 
 export const Default: Story = {
   args: {},
@@ -82,19 +76,6 @@ export const CenterPlacement: Story = {
   ),
 };
 
-export const TopPlacement: Story = {
-  args: {
-    placement: 'top',
-    title: 'Top Modal',
-  },
-  render: (args) => (
-    <ModalWrapper {...args}>
-      <p>This modal appears at the top of the screen.</p>
-      <p>Useful for notifications or quick actions.</p>
-    </ModalWrapper>
-  ),
-};
-
 export const BottomPlacement: Story = {
   args: {
     placement: 'bottom',
@@ -123,25 +104,11 @@ export const WithComplexContent: Story = {
           <li>Form elements</li>
         </ul>
         <div style={{ marginTop: '1rem' }}>
-          <Button variant="primary" style={{ marginRight: '0.5rem' }}>
-            Save
-          </Button>
-          <Button variant="outline">Cancel</Button>
+          <Button text="Save" variant="primary" style={{ marginRight: '0.5rem' }}/>
+            
+          <Button variant="outline" text="Cancel" />
         </div>
       </div>
     </ModalWrapper>
   ),
 };
-
-export const WithoutTitle: Story = {
-  args: {},
-  render: (args) => (
-    <ModalWrapper {...args}>
-      <div style={{ textAlign: 'center', padding: '2rem' }}>
-        <h3>No Title Modal</h3>
-        <p>This modal doesn't have a title in the header.</p>
-        <p>The close button is still available in the top-right corner.</p>
-      </div>
-    </ModalWrapper>
-  ),
-}; 

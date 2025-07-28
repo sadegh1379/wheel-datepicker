@@ -1,24 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import Button from '../components/button/button';
+import type { Meta, StoryObj } from "@storybook/react-webpack5";
+import Button from "../components/button/button";
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'outline'],
-    },
     size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      control: { type: "select" },
+      options: ["small", "medium", "large"],
     },
-    disabled: {
-      control: { type: 'boolean' },
+    variant: {
+      control: { type: "select" },
+      options: ["primary", "secondary", "outline"],
     },
-    children: {
-      control: { type: 'text' },
+    className: {
+      control: { type: "text" },
+    },
+    style: {
+      control: { type: "object" },
+    },
+    text: {
+      control: { type: "text" },
     },
   },
 };
@@ -28,48 +31,26 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Default Button',
-  },
-};
-
-export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Primary Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    children: 'Secondary Button',
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: 'outline',
-    children: 'Outline Button',
+    text: "Custom Title",
   },
 };
 
 export const Small: Story = {
   args: {
-    size: 'small',
-    children: 'Small Button',
+    size: "small",
+    text: "Custom Title",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: 'large',
-    children: 'Large Button',
+    size: "large",
+    text: "Custom Title",
   },
 };
 
-export const Disabled: Story = {
+export const CustomTitle: Story = {
   args: {
-    disabled: true,
-    children: 'Disabled Button',
+    text: "Custom Title",
   },
-}; 
+};

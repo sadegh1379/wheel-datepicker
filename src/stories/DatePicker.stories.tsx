@@ -10,9 +10,6 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: { type: 'text' },
-    },
     minYear: {
       control: { type: 'number' },
     },
@@ -22,8 +19,20 @@ const meta = {
     value: {
       control: { type: 'text' },
     },
-    name: {
+    className: {
       control: { type: 'text' },
+    },
+    wheelPickerProps: {
+      control: { type: 'object' },
+    },
+    inputProps: {
+      control: { type: 'object' },
+    },
+    modalProps: {
+      control: { type: 'object' },
+    },
+    buttonProps: {
+      control: { type: 'object' },
     },
   },
 } satisfies Meta<typeof WheelDatePicker>;
@@ -45,7 +54,6 @@ const DatePickerWrapper = ({ children, ...props }: any) => {
 
 export const Default: Story = {
   args: {
-    name: 'default',
   },
   render: (args) => (
     <DatePickerWrapper {...args} />
@@ -54,8 +62,6 @@ export const Default: Story = {
 
 export const WithLabel: Story = {
   args: {
-    name: 'withLabel',
-    label: 'Select Date',
   },
   render: (args) => (
     <DatePickerWrapper {...args} label="Select Date" />
@@ -64,8 +70,6 @@ export const WithLabel: Story = {
 
 export const WithCustomYearRange: Story = {
   args: {
-    name: 'customYearRange',
-    label: 'Custom Year Range',
     minYear: 1350,
     maxYear: 1410,
   },
@@ -76,110 +80,16 @@ export const WithCustomYearRange: Story = {
 
 export const WithInitialValue: Story = {
   args: {
-    name: 'withInitialValue',
-    label: 'With Initial Value',
     value: '1402/06/15',
   },
-  render: (args) => (
-    <WheelDatePicker
-      {...args}
-      label="With Initial Value"
-      value="1402/06/15"
-      onChange={(date) => console.log('Selected date:', date)}
-    />
-  ),
-};
-
-export const WithCustomInputProps: Story = {
-  args: {
-    name: 'customInput',
-    label: 'Custom Input',
-    inputProps: {
-      placeholder: 'Click to select date',
-      style: { backgroundColor: '#f8f9fa' }
-    },
+  render: (args) => {
+    const [value, setValue] = useState('1402/06/15');
+    return (
+      <WheelDatePicker
+        {...args}
+        value={value}
+        onChange={setValue}
+      />
+    );
   },
-  render: (args) => (
-    <DatePickerWrapper
-      {...args}
-      label="Custom Input"
-      inputProps={{
-        placeholder: 'Click to select date',
-        style: { backgroundColor: '#f8f9fa' }
-      }}
-    />
-  ),
 };
-
-export const WithCustomModalProps: Story = {
-  args: {
-    name: 'customModal',
-    label: 'Custom Modal',
-    modalProps: {
-      placement: 'center',
-      className: 'custom-modal'
-    },
-  },
-  render: (args) => (
-    <DatePickerWrapper
-      {...args}
-      label="Custom Modal"
-      modalProps={{
-        placement: 'center',
-        className: 'custom-modal'
-      }}
-    />
-  ),
-};
-
-export const WithCustomWheelPickerProps: Story = {
-  args: {
-    name: 'customWheelPicker',
-    label: 'Custom Wheel Picker',
-    wheelPickerProps: {
-      visibleCount: 5,
-      itemClassName: 'custom-wheel-item',
-      indicatorClassName: 'custom-indicator'
-    },
-  },
-  render: (args) => (
-    <DatePickerWrapper
-      {...args}
-      label="Custom Wheel Picker"
-      wheelPickerProps={{
-        visibleCount: 5,
-        itemClassName: 'custom-wheel-item',
-        indicatorClassName: 'custom-indicator'
-      }}
-    />
-  ),
-};
-
-export const MultipleDatePickers: Story = {
-  args: {
-    name: 'multiplePickers',
-  },
-  render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <DatePickerWrapper {...args} label="Start Date" name="startDate" />
-      <DatePickerWrapper {...args} label="End Date" name="endDate" />
-    </div>
-  ),
-};
-
-export const WithForm: Story = {
-  args: {
-    name: 'withForm',
-  },
-  render: (args) => (
-    <form onSubmit={(e) => { e.preventDefault(); console.log('Form submitted'); }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px' }}>
-        <input type="text" placeholder="Name" />
-        <DatePickerWrapper {...args} label="Birth Date" name="birthDate" />
-        <button type="submit" style={{ padding: '0.5rem', backgroundColor: '#3b82f6', color: 'white', border: 'none', borderRadius: '0.25rem' }}>
-          Submit
-        </button>
-      </div>
-    </form>
-  ),
-}; 
