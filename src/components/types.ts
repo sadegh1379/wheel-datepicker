@@ -9,4 +9,32 @@ interface WheelPickerProps {
   indicatorClassName?: string;
 }
 
-export type { WheelPickerProps }
+interface InputProps {
+
+}
+
+interface ButtonProps{
+
+}
+
+interface ModalProps {
+
+}
+
+interface DatepickerProps {
+    value?: string;
+    onChange?: (date: string) => void;
+    minYear?: number;
+    maxYear?: number;
+    className?: string;
+    name: string;
+    label?: string;
+    wheelPickerProps?: Omit<
+    WheelPickerProps,
+      'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
+    >;
+    inputProps?: Omit<InputProps, 'name' | 'onChange' | 'onClick' | 'readOnly' | 'value' | 'label'>;
+    modalProps?: ModalProps;
+}
+
+export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps }
