@@ -1,6 +1,6 @@
 {
   "name": "@nikaat-corp/wheel-datepicker",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "A modern, customizable wheel datepicker component for React applications, offering intuitive date selection with a smooth scrolling interface.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
