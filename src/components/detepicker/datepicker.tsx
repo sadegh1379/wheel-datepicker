@@ -1,7 +1,11 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import moment from 'moment-jalaali';
 import { DatepickerProps } from '../types';
-
+import WheelPicker from '../wheel-picker/wheel-picker';
+import Input from '../input/input';
+import Modal from '../modal/modal';
+import Button from '../button/button';
+import './datepicker.css';
 
 const months = [
   'فروردین',
@@ -140,13 +144,13 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
         onClose={handleCancel}
         {...modalProps}
       >
-        <div className="flex flex-col items-center w-full p-4 pb-0 gap-10">
-          <div className={twMerge('flex items-center justify-stretch w-full', className)}>
+        <div className="wd-datepicker-modal-content">
+          <div className={`wd-datepicker-wheels-container ${className || ''}`}>
             <WheelPicker
               items={days}
               onChange={handleDayChange}
               value={temp.day.toString()}
-              containerClassName={'w-full'}
+              containerClassName={'wd-datepicker-wheel-container'}
               visibleCount={3}
               {...wheelPickerProps}
             />
@@ -154,7 +158,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
               items={months}
               onChange={handleMonthChange}
               value={months[temp.month - 1]}
-              containerClassName={'w-full'}
+              containerClassName={'wd-datepicker-wheel-container'}
               visibleCount={3}
               {...wheelPickerProps}
             />
@@ -162,12 +166,12 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
               items={years}
               onChange={handleYearChange}
               value={temp.year.toString()}
-              containerClassName={'w-full'}
+              containerClassName={'wd-datepicker-wheel-container'}
               visibleCount={3}
               {...wheelPickerProps}
             />
           </div>
-          <Button className="w-full" size="medium" onClick={handleSet}>
+          <Button className="wd-datepicker-confirm-button" size="medium" onClick={handleSet}>
             تایید
           </Button>
         </div>

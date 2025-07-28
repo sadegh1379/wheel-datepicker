@@ -1,0 +1,24 @@
+.wd-datepicker-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  padding-bottom: 0;
+  gap: 2.5rem;
+}
+
+.wd-datepicker-wheels-container {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.wd-datepicker-wheel-container {
+  width: 100%;
+}
+
+.wd-datepicker-confirm-button {
+  width: 100%;
+}
