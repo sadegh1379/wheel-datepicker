@@ -29,13 +29,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Enter birthday text...',
+    value: '1402/01/01',
+    placeholder: 'Enter your birthday',
   },
 };
 
 export const WithLabel: Story = {
   args: {
     label: 'Birthday',
+    value: '1402/01/01',
     placeholder: 'Enter your birthday',
   },
 };
@@ -43,6 +45,7 @@ export const WithLabel: Story = {
 export const WithError: Story = {
   args: {
     label: 'Birthday ',
+    value: '1402/01/01',
     placeholder: 'Enter your birthday ',
     error: 'Birthday is invalid',
   },
@@ -51,6 +54,7 @@ export const WithError: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Disabled Birthday',
+    value: '1402/01/01',
     placeholder: 'This birthday input is disabled',
     disabled: true,
   },
@@ -59,15 +63,15 @@ export const Disabled: Story = {
 export const Required: Story = {
   args: {
     label: 'Required Birthday Field',
+    value: '1402/01/01',
     placeholder: 'This birthday field is required',
-    required: true,
   },
 };
 
 export const WithValue: Story = {
   args: {
-    label: 'Birthday birthday',
+    label: 'Birthday',
     value: '1402/01/01',
-    placeholder: 'Enter your birthday birthday',
+    placeholder: 'Enter your birthday',
   },
 };

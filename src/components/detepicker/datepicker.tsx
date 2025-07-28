@@ -28,10 +28,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   value,
   onChange,
   minYear = 1300,
-  label,
   maxYear = moment().jYear(),
   className,
-  name = 'date',
   inputProps,
   wheelPickerProps,
   modalProps
@@ -130,16 +128,16 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   return (
     <>
       <Input
-        name={name}
-        readOnly
+        name={inputProps?.name}
+        readonly
         value={displayValue}
         onClick={() => setModalOpen(true)}
-        label={label}
+        label={inputProps?.label}
         {...inputProps}
       />
       <Modal
         placement="bottom"
-        title={label}
+        title={modalProps?.title}
         isOpen={modalOpen}
         onClose={handleCancel}
         {...modalProps}

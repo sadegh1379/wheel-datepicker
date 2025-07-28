@@ -9,10 +9,16 @@ interface WheelPickerProps {
   indicatorClassName?: string;
 }
 
-interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+interface InputProps {
   label?: string;
   error?: string;
   className?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  value?: string;
+  name?: string;
+  readonly?: boolean;
+  onClick?: () => void
 }
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -26,7 +32,7 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  placement?: 'top' | 'bottom' | 'center';
+  placement?: 'bottom' | 'center';
   children: React.ReactNode;
   className?: string;
 }
@@ -37,14 +43,12 @@ interface DatepickerProps {
     minYear?: number;
     maxYear?: number;
     className?: string;
-    name: string;
-    label?: string;
     wheelPickerProps?: Omit<
     WheelPickerProps,
       'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
     >;
-    inputProps?: Omit<InputProps, 'name' | 'onChange' | 'onClick' | 'readOnly' | 'value' | 'label'>;
-    modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
+    inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
+    modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children' | 'placement'>;
 }
 
 export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps }

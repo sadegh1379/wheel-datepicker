@@ -13,6 +13,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         <input
           ref={ref}
+          readOnly
           className={`wd-input-field ${error ? 'wd-input-error' : ''}`}
           type="text"
           {...props}
