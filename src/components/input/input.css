@@ -1,7 +1,35 @@
+:root {
+  /* Colors */
+  --wd-input-border-color: #d1d5db;
+  --wd-input-border-error-color: #ef4444;
+  --wd-input-background-color: #ffffff;
+  --wd-input-background-disabled-color: #f9fafb;
+  --wd-input-text-color: #111827;
+  --wd-input-text-disabled-color: #6b7280;
+  --wd-input-label-color: #374151;
+  --wd-input-error-text-color: #ef4444;
+  
+  /* Spacing */
+  --wd-input-gap: 0.3rem;
+  --wd-input-padding: 0.75rem;
+  --wd-input-border-radius: 0.375rem;
+  --wd-input-error-margin-top: 0.10rem;
+  
+  /* Typography */
+  --wd-input-font-size: 0.875rem;
+  --wd-input-error-font-size: 0.75rem;
+  --wd-input-font-weight: 500;
+  
+  /* Effects */
+  --wd-input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  --wd-input-error-focus-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  --wd-input-border-width: 1px;
+}
+
 .wd-input-container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--wd-input-gap);
   width: 100%;
 }
 
@@ -11,45 +39,38 @@
 }
 
 .wd-input-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  cursor: pointer;
+  font-size: var(--wd-input-font-size);
+  font-weight: var(--wd-input-font-weight);
+  color: var(--wd-input-label-color);
 }
 
 .wd-input-field {
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  background-color: #ffffff;
-  color: #111827;
+  padding: var(--wd-input-padding);
+  border: var(--wd-input-border-width) solid var(--wd-input-border-color);
+  border-radius: var(--wd-input-border-radius);
+  font-size: var(--wd-input-font-size);
+  transition: var(--wd-input-transition);
+  background-color: var(--wd-input-background-color);
+  color: var(--wd-input-text-color);
 }
 
 .wd-input-field:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: none;
 }
 
 .wd-input-field:disabled {
-  background-color: #f9fafb;
-  color: #6b7280;
+  background-color: var(--wd-input-background-disabled-color);
+  color: var(--wd-input-text-disabled-color);
   cursor: not-allowed;
 }
 
 .wd-input-field.wd-input-error {
-  border-color: #ef4444;
-}
-
-.wd-input-field.wd-input-error:focus {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  border-color: var(--wd-input-border-error-color);
 }
 
 .wd-input-error-message {
-  font-size: 0.75rem;
-  color: #ef4444;
-  margin-top: 0.10rem;
+  font-size: var(--wd-input-error-font-size);
+  color: var(--wd-input-error-text-color);
+  margin-top: var(--wd-input-error-margin-top);
 }
