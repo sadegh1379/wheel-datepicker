@@ -1,10 +1,17 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import moment from 'moment-jalaali';
 import { DatepickerProps } from '../types';
 import WheelPicker from '../wheel-picker/wheel-picker';
 import Input from '../input/input';
 import Modal from '../modal/modal';
 import Button from '../button/button';
+import { 
+  parseJalaliDate, 
+  formatJalaliDate, 
+  getCurrentJalaliDate, 
+  getDaysInJalaliMonth,
+  isValidJalaliDate,
+  type JalaliDate 
+} from '../../utils/jalali-date';
 import './datepicker.css';
 
 const months = [
@@ -28,7 +35,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   value,
   onChange,
   minYear = 1300,
-  maxYear = moment().jYear(),
+  maxYear = getCurrentJalaliDate().year,
   className,
   inputProps,
   wheelPickerProps,
@@ -38,17 +45,18 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
 }) => {
   // parse initial value or fallback to today
   const initial = useMemo(() => {
-    if (value && moment(value, WHEEL_DATE_FORMAT, true).isValid()) {
-      return moment(value, WHEEL_DATE_FORMAT);
+    if (value) {
+      const parsed = parseJalaliDate(value);
+      if (parsed) return parsed;
     }
-    return moment().locale('fa');
+    return getCurrentJalaliDate();
   }, [value]);
 
   // state for the selected value (committed)
   const [selected, setSelected] = useState({
-    year: initial.jYear(),
-    month: initial.jMonth() + 1,
-    day: initial.jDate()
+    year: initial.year,
+    month: initial.month,
+    day: initial.day
   });
 
   // state for modal open/close
@@ -66,7 +74,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
 
   // generate days based on month/year
   const daysInMonth = useMemo(() => {
-    return moment.jDaysInMonth(temp.year, temp.month - 1);
+    return getDaysInJalaliMonth(temp.year, temp.month);
   }, [temp.year, temp.month]);
   const days = useMemo(() => {
     return Array.from({ length: daysInMonth }, (_, i) => (i + 1).toString());
@@ -103,14 +111,10 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   const handleSet = () => {
     setSelected(temp);
     setModalOpen(false);
-    // Ensure proper formatting with zero-padding for month and day
-    const formattedMonth = temp.month.toString().padStart(2, '0');
-    const formattedDay = temp.day.toString().padStart(2, '0');
-    const dateString = `${temp.year}/${formattedMonth}/${formattedDay}`;
-    const m = moment(dateString, WHEEL_DATE_FORMAT, true).locale('fa');
-   
-    if (m.isValid()) {
-      onChange?.(m.format(WHEEL_DATE_FORMAT));
+    
+    if (isValidJalaliDate(temp)) {
+      const dateString = formatJalaliDate(temp);
+      onChange?.(dateString);
     }
   };
   const handleCancel = () => {
@@ -122,10 +126,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   const displayValue = useMemo(() => {
     if (!value) return '';
 
-    const m = moment(`${selected.year}/${selected.month}/${selected.day}`, 'jYYYY/jM/jD').locale(
-      'fa'
-    );
-    return m.isValid() ? m.format(WHEEL_DATE_FORMAT) : '';
+    const dateObj = { year: selected.year, month: selected.month, day: selected.day };
+    return isValidJalaliDate(dateObj) ? formatJalaliDate(dateObj) : '';
   }, [selected]);
 
   // Create wheel picker components
