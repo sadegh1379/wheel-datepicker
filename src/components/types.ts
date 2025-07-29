@@ -9,6 +9,7 @@ interface WheelPickerProps {
   containerClassName?: string;
   className?: string;
   indicatorClassName?: string;
+  rtl?: boolean;
 }
 
 interface InputProps {
@@ -20,7 +21,8 @@ interface InputProps {
   value?: string;
   name?: string;
   readonly?: boolean;
-  onClick?: () => void
+  onClick?: () => void;
+  rtl?: boolean;
 }
 
 interface ButtonProps {
@@ -29,7 +31,7 @@ interface ButtonProps {
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
-  text: React.ReactNode
+  text: React.ReactNode;
 }
 
 interface ModalProps {
@@ -39,6 +41,7 @@ interface ModalProps {
   placement?: 'bottom' | 'center';
   children: React.ReactNode;
   className?: string;
+  rtl?: boolean;
 }
 
 interface DatepickerProps {
@@ -47,6 +50,7 @@ interface DatepickerProps {
     minYear?: number;
     maxYear?: number;
     className?: string;
+    rtl?: boolean;
     wheelPickerProps?: Omit<
     WheelPickerProps,
       'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'

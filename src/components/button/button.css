@@ -16,6 +16,12 @@
   cursor: not-allowed;
 }
 
+/* RTL Support */
+.wd-button-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 /* Size variants */
 .wd-button-small {
   padding: 0.5rem 1rem;

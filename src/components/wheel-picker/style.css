@@ -93,3 +93,13 @@
 .dark .wd-dark\:border-gray-700 {
   border-color: #374151;
 }
+
+/* RTL Support */
+.wd-wheel-picker-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.wd-wheel-picker-rtl .wd-justify-center {
+  justify-content: center;
+}

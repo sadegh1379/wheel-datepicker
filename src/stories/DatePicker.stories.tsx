@@ -22,6 +22,9 @@ const meta = {
     className: {
       control: { type: 'text' },
     },
+    rtl: {
+      control: { type: 'boolean' },
+    },
     wheelPickerProps: {
       control: { type: 'object' },
     },
@@ -64,7 +67,7 @@ export const WithLabel: Story = {
   args: {
   },
   render: (args) => (
-    <DatePickerWrapper {...args} label="Select Date" />
+    <DatePickerWrapper {...args} inputProps={{ label: "Select Date" }} />
   ),
 };
 
@@ -74,7 +77,7 @@ export const WithCustomYearRange: Story = {
     maxYear: 1410,
   },
   render: (args) => (
-    <DatePickerWrapper {...args} label="Custom Year Range" minYear={1350} maxYear={1410} />
+    <DatePickerWrapper {...args} inputProps={{ label: "Custom Year Range" }} minYear={1350} maxYear={1410} />
   ),
 };
 
@@ -89,6 +92,34 @@ export const WithInitialValue: Story = {
         {...args}
         value={value}
         onChange={setValue}
+      />
+    );
+  },
+};
+
+export const RTL: Story = {
+  args: {
+    rtl: true,
+  },
+  render: (args) => (
+    <DatePickerWrapper {...args} inputProps={{ label: "انتخاب تاریخ" }} rtl={true} />
+  ),
+};
+
+export const RTLWithInitialValue: Story = {
+  args: {
+    rtl: true,
+    value: '1402/06/15',
+  },
+  render: (args) => {
+    const [value, setValue] = useState('1402/06/15');
+    return (
+      <WheelDatePicker
+        {...args}
+        value={value}
+        onChange={setValue}
+        inputProps={{ label: "انتخاب تاریخ" }}
+        rtl={true}
       />
     );
   },

@@ -33,7 +33,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   inputProps,
   wheelPickerProps,
   modalProps,
-  buttonProps
+  buttonProps,
+  rtl = false
 }) => {
   // parse initial value or fallback to today
   const initial = useMemo(() => {
@@ -122,6 +123,46 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
     return m.format(WHEEL_DATE_FORMAT);
   }, [selected]);
 
+  // Create wheel picker components
+  const dayWheel = (
+    <WheelPicker
+      items={days}
+      onChange={handleDayChange}
+      value={temp.day.toString()}
+      containerClassName={'wd-datepicker-wheel-container'}
+      visibleCount={3}
+      rtl={rtl}
+      {...wheelPickerProps}
+    />
+  );
+
+  const monthWheel = (
+    <WheelPicker
+      items={months}
+      onChange={handleMonthChange}
+      value={months[temp.month - 1]}
+      containerClassName={'wd-datepicker-wheel-container'}
+      visibleCount={3}
+      rtl={rtl}
+      {...wheelPickerProps}
+    />
+  );
+
+  const yearWheel = (
+    <WheelPicker
+      items={years}
+      onChange={handleYearChange}
+      value={temp.year.toString()}
+      containerClassName={'wd-datepicker-wheel-container'}
+      visibleCount={3}
+      rtl={rtl}
+      {...wheelPickerProps}
+    />
+  );
+
+  // Order wheels based on RTL setting
+  const wheelOrder = rtl ? [yearWheel, monthWheel, dayWheel] : [dayWheel, monthWheel, yearWheel];
+
   return (
     <>
       <Input
@@ -130,6 +171,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
         value={displayValue}
         onClick={() => setModalOpen(true)}
         label={inputProps?.label}
+        rtl={rtl}
         {...inputProps}
       />
       <Modal
@@ -137,36 +179,20 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
         title={modalProps?.title}
         isOpen={modalOpen}
         onClose={handleCancel}
+        rtl={rtl}
         {...modalProps}
       >
-        <div className="wd-datepicker-modal-content">
+        <div className={`wd-datepicker-modal-content ${rtl ? 'wd-datepicker-rtl' : ''}`}>
           <div className={`wd-datepicker-wheels-container ${className || ''}`}>
-            <WheelPicker
-              items={days}
-              onChange={handleDayChange}
-              value={temp.day.toString()}
-              containerClassName={'wd-datepicker-wheel-container'}
-              visibleCount={3}
-              {...wheelPickerProps}
-            />
-            <WheelPicker
-              items={months}
-              onChange={handleMonthChange}
-              value={months[temp.month - 1]}
-              containerClassName={'wd-datepicker-wheel-container'}
-              visibleCount={3}
-              {...wheelPickerProps}
-            />
-            <WheelPicker
-              items={years}
-              onChange={handleYearChange}
-              value={temp.year.toString()}
-              containerClassName={'wd-datepicker-wheel-container'}
-              visibleCount={3}
-              {...wheelPickerProps}
-            />
+            {wheelOrder}
           </div>
-          <Button className="wd-datepicker-confirm-button"  size="medium" onClick={handleSet}  text="تایید" {...buttonProps}/>
+          <Button 
+            className="wd-datepicker-confirm-button" 
+            size="medium" 
+            onClick={handleSet} 
+            text="تایید" 
+            {...buttonProps}
+          />
         </div>
       </Modal>
     </>

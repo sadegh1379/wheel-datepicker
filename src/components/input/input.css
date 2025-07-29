@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+.wd-input-container.wd-input-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 .wd-input-label {
   font-size: 0.875rem;
   font-weight: 500;

@@ -8,7 +8,8 @@ const Modal: React.FC<ModalProps> = ({
   title,
   placement = 'center',
   children,
-  className = ''
+  className = '',
+  rtl = false
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -24,11 +25,11 @@ const Modal: React.FC<ModalProps> = ({
 
   if (!isOpen) return null;
 
-  const modalClasses = `wd-modal wd-modal-${placement} ${className}`;
+  const modalClasses = `wd-modal wd-modal-${placement} ${rtl ? 'wd-modal-rtl' : ''} ${className}`;
 
   return (
     <div className="wd-modal-overlay" onClick={onClose}>
-      <div className={modalClasses} onClick={(e) => e.stopPropagation()}>
+      <div className={modalClasses} onClick={(e) => e.stopPropagation()} dir={rtl ? 'rtl' : 'ltr'}>
         {title && (
           <div className="wd-modal-header">
             <h3 className="wd-modal-title">{title}</h3>

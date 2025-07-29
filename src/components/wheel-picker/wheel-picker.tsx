@@ -13,6 +13,7 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
   containerClassName,
   itemClassName,
   indicatorClassName,
+  rtl = false,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeout = useRef<any>(null);
@@ -61,8 +62,9 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
 
   return (
     <div
-      className={`wd-relative ${containerClassName || ""}`}
+      className={`wd-relative ${rtl ? 'wd-wheel-picker-rtl' : ''} ${containerClassName || ""}`}
       style={{ height: visibleCount * ITEM_HEIGHT }}
+      dir={rtl ? 'rtl' : 'ltr'}
     >
       <div
         ref={scrollRef}

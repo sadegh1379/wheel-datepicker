@@ -8,6 +8,11 @@
   gap: 2.5rem;
 }
 
+.wd-datepicker-modal-content.wd-datepicker-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 .wd-datepicker-wheels-container {
   display: flex;
   align-items: center;

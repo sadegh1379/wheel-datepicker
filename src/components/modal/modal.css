@@ -22,6 +22,11 @@
   animation: wd-modal-enter 0.2s ease-out;
 }
 
+.wd-modal.wd-modal-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 @keyframes wd-modal-enter {
   from {
     opacity: 0;
@@ -45,12 +50,11 @@
 
 .wd-modal-bottom {
   position: fixed;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   bottom: 0;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px; /* Adjust as needed */
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   border-bottom-left-radius: 0;
