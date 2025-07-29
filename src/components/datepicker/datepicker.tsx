@@ -78,21 +78,20 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   }, [daysInMonth, temp.day]);
 
   // when value or defaultValue prop changes, update selected and temp
-  useEffect(() => {
-    if (value && moment(value, WHEEL_DATE_FORMAT, true).isValid()) {
-      const m = moment(value, WHEEL_DATE_FORMAT);
-      setSelected({
-        year: m.jYear(),
-        month: m.jMonth() + 1,
-        day: m.jDate()
-      });
-      setTemp({
-        year: m.jYear(),
-        month: m.jMonth() + 1,
-        day: m.jDate()
-      });
-    }
-  }, [value]);
+  // useEffect(() => {
+  //   if (value && moment(value, WHEEL_DATE_FORMAT, true).isValid()) {
+  //     const m = moment(value, WHEEL_DATE_FORMAT);
+  //     const newState = {
+  //       year: m.jYear(),
+  //       month: m.jMonth() + 1,
+  //       day: m.jDate()
+  //     };
+  //     console.log('value', value)
+  //     console.log('set temp and selected is use effect', newState)
+  //     setSelected(newState);
+  //     setTemp(newState);
+  //   }
+  // }, [value]);
 
   // handlers for wheel pickers in modal
   const handleYearChange = (val: string) => setTemp(t => ({ ...t, year: Number(val) }));
@@ -104,8 +103,15 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   const handleSet = () => {
     setSelected(temp);
     setModalOpen(false);
-    const m = moment(`${temp.year}/${temp.month}/${temp.day}`, 'jYYYY/jM/jD').locale('fa');
-    onChange?.(m.format(WHEEL_DATE_FORMAT));
+    // Ensure proper formatting with zero-padding for month and day
+    const formattedMonth = temp.month.toString().padStart(2, '0');
+    const formattedDay = temp.day.toString().padStart(2, '0');
+    const dateString = `${temp.year}/${formattedMonth}/${formattedDay}`;
+    const m = moment(dateString, WHEEL_DATE_FORMAT, true).locale('fa');
+   
+    if (m.isValid()) {
+      onChange?.(m.format(WHEEL_DATE_FORMAT));
+    }
   };
   const handleCancel = () => {
     setTemp(selected);
@@ -119,8 +125,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
     const m = moment(`${selected.year}/${selected.month}/${selected.day}`, 'jYYYY/jM/jD').locale(
       'fa'
     );
-   
-    return m.format(WHEEL_DATE_FORMAT);
+    return m.isValid() ? m.format(WHEEL_DATE_FORMAT) : '';
   }, [selected]);
 
   // Create wheel picker components
