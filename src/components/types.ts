@@ -9,7 +9,7 @@ interface WheelPickerProps {
   containerClassName?: string;
   className?: string;
   indicatorClassName?: string;
-  rtl?: boolean;
+  itemHeight?: number
 }
 
 interface InputProps {

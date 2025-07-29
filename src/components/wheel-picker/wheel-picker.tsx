@@ -2,21 +2,23 @@ import React, { useEffect, useRef, useState } from "react";
 import { WheelPickerProps } from "../types";
 import "./style.css";
 
-const ITEM_HEIGHT = 40
 
 const WheelPicker: React.FC<WheelPickerProps> = ({
   items,
   onChange,
-  visibleCount = 5,
+  visibleCount = 3,
   value,
   className,
   containerClassName,
   itemClassName,
   indicatorClassName,
-  rtl = false,
+  itemHeight,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeout = useRef<any>(null);
+
+const ITEM_HEIGHT = itemHeight || 40
+
 
   const totalPadding = Math.floor(visibleCount / 2);
   const paddedItems = [
@@ -62,16 +64,13 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
 
   return (
     <div
-      className={`wd-relative ${rtl ? 'wd-wheel-picker-rtl' : ''} ${containerClassName || ""}`}
+      className={`wd-wheel-picker-container ${containerClassName || ""}`}
       style={{ height: visibleCount * ITEM_HEIGHT }}
-      dir={rtl ? 'rtl' : 'ltr'}
     >
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className={`wd-overflow-y-scroll wd-scrollbar-hide wd-scroll-snap-y wd-scroll-snap-mandatory ${
-          className || ""
-        }`}
+        className={`wd-wheel-picker-scroll ${className || ""}`}
         style={{ height: "100%" }}
       >
         {paddedItems.map((item, idx) => {
@@ -84,13 +83,7 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
           return (
             <div
               key={idx}
-              className={`wd-flex wd-items-center wd-mx-auto wd-justify-center wd-scroll-snap-align-center wd-transition-all wd-duration-200 ${
-                isSelected
-                  ? "wd-font-semibold wd-text-lg"
-                  : "wd-text-gray-400 wd-dark:text-gray-700 wd-text-sm"
-              } ${isClickable ? "wd-cursor-pointer" : ""} ${
-                itemClassName || ""
-              }`}
+              className={`wd-wheel-picker-item ${isSelected ? 'wd-wheel-picker-item-selected' : 'wd-wheel-picker-item-unselected'} ${isClickable ? 'wd-wheel-picker-item-clickable' : ''} ${itemClassName || ""}`}
               style={{ height: ITEM_HEIGHT }}
               onClick={
                 isClickable
@@ -109,9 +102,7 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
       </div>
 
       <div
-        className={`wd-absolute wd-left-0 wd-right-0 wd-border-t wd-border-b wd-border-gray-300 wd-dark:border-gray-700 wd-pointer-events-none ${
-          indicatorClassName || ""
-        }`}
+        className={`wd-wheel-picker-indicator ${indicatorClassName || ""}`}
         style={{
           top: `${ITEM_HEIGHT * totalPadding}px`,
           height: `${ITEM_HEIGHT}px`,

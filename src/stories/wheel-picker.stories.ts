@@ -31,8 +31,12 @@ export const Default: Story = {};
 
 export const WithFiveOptions: Story = {
   args: {
-    items: ['One', 'Two', 'Three', 'Four', 'Five'],
+    items: [
+      'One', 'Two', 'Three', 'Four', 'Five',
+      'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen'
+    ],
     value: 'Three',
+    visibleCount: 5,
   },
 };
 
