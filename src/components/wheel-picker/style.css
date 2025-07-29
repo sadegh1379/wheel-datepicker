@@ -1,5 +1,6 @@
 .wd-relative {
   position: relative;
+  font-family: var(--wdp-font-family);
 }
 .wd-overflow-y-scroll {
   overflow-y: scroll;

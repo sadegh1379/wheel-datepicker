@@ -56,7 +56,7 @@ interface DatepickerProps {
       'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
     >;
     inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
-    modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children' | 'placement'>;
+    modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
     buttonProps?: Omit<ButtonProps, 'onClick'>
     
 }

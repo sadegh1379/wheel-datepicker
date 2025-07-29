@@ -41,6 +41,8 @@
 /* Placement variants */
 .wd-modal-center {
   align-self: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .wd-modal-top {
@@ -111,7 +113,7 @@
 }
 
 .wd-modal-content {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 15px;
   overflow-y: auto;
   max-height: calc(90vh - 120px);
 }

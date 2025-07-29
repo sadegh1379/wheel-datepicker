@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { useState } from 'react';
-import WheelDatePicker from '../components/detepicker/datepicker';
+import WheelDatePicker from '../components/datepicker/datepicker';
+import { DatepickerProps } from '../components/types';
 
 const meta = {
   title: 'Components/DatePicker',
@@ -44,7 +45,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Wrapper component to handle date picker state
-const DatePickerWrapper = ({ children, ...props }: any) => {
+const DatePickerWrapper = ({ ...props }: DatepickerProps) => {
   const [value, setValue] = useState('');
   return (
     <WheelDatePicker
@@ -59,7 +60,7 @@ export const Default: Story = {
   args: {
   },
   render: (args) => (
-    <DatePickerWrapper {...args} />
+    <DatePickerWrapper modalProps={{ placement: "center" }} {...args}  />
   ),
 };
 
