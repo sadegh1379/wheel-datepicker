@@ -136,7 +136,6 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
       value={temp.day.toString()}
       containerClassName={'wd-datepicker-wheel-container'}
       visibleCount={3}
-      rtl={rtl}
       {...wheelPickerProps}
     />
   );
@@ -148,7 +147,6 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
       value={months[temp.month - 1]}
       containerClassName={'wd-datepicker-wheel-container'}
       visibleCount={3}
-      rtl={rtl}
       {...wheelPickerProps}
     />
   );
@@ -160,7 +158,6 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
       value={temp.year.toString()}
       containerClassName={'wd-datepicker-wheel-container'}
       visibleCount={3}
-      rtl={rtl}
       {...wheelPickerProps}
     />
   );
