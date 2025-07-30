@@ -4,7 +4,7 @@ interface WheelPickerProps {
   items: string[];
   onChange?: (item: string) => void;
   value?: string;
-  visibleCount?: number;
+  visibleCount?: 1 | 3 | 5  | 7;
   itemClassName?: string;
   containerClassName?: string;
   className?: string;
@@ -56,7 +56,7 @@ interface DatepickerProps {
     >;
     inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
     modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
-    buttonProps?: Omit<ButtonProps, 'onClick'>
+    buttonProps?: Omit<ButtonProps, 'onClick' | 'children'>
     
 }
 
