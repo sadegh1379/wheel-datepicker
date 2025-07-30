@@ -27,11 +27,9 @@ interface InputProps {
 
 interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'outline';
   className?: string;
-  style?: React.CSSProperties;
   onClick?: () => void;
-  text: React.ReactNode;
+  children: React.ReactNode;
 }
 
 interface ModalProps {
@@ -42,6 +40,7 @@ interface ModalProps {
   children: React.ReactNode;
   className?: string;
   rtl?: boolean;
+  closeIcon?: React.ReactNode;
 }
 
 interface DatepickerProps {
@@ -50,9 +49,9 @@ interface DatepickerProps {
     minYear?: number;
     maxYear?: number;
     className?: string;
-    rtl?: boolean;
+    calendarType?: 'jalali' | 'miladi';
     wheelPickerProps?: Omit<
-    WheelPickerProps,
+      WheelPickerProps,
       'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
     >;
     inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;

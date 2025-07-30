@@ -40,9 +40,11 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   inputProps,
   wheelPickerProps,
   modalProps,
-  buttonProps,
-  rtl = false
+  calendarType = "jalali",
+  buttonProps
 }) => {
+  // Set RTL based on calendar type
+  const rtl = calendarType === "jalali";
   // parse initial value or fallback to today
   const initial = useMemo(() => {
     if (value) {
@@ -194,9 +196,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
             className="wd-datepicker-confirm-button" 
             size="medium" 
             onClick={handleSet} 
-            text="تایید" 
             {...buttonProps}
-          />
+          >تایید</Button>
         </div>
       </Modal>
     </>

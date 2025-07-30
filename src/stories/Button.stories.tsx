@@ -10,17 +10,11 @@ const meta: Meta<typeof Button> = {
       control: { type: "select" },
       options: ["small", "medium", "large"],
     },
-    variant: {
-      control: { type: "select" },
-      options: ["primary", "secondary", "outline"],
-    },
     className: {
       control: { type: "text" },
     },
-    style: {
-      control: { type: "object" },
-    },
-    text: {
+   
+    children: {
       control: { type: "text" },
     },
   },
@@ -31,26 +25,26 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: "Custom Title",
+    children: "Custom Title",
   },
 };
 
 export const Small: Story = {
   args: {
     size: "small",
-    text: "Custom Title",
+    children: "Custom Title",
   },
 };
 
 export const Large: Story = {
   args: {
     size: "large",
-    text: "Custom Title",
+    children: "Custom Title",
   },
 };
 
 export const CustomTitle: Story = {
   args: {
-    text: "Custom Title",
+    children: "Custom Title",
   },
 };

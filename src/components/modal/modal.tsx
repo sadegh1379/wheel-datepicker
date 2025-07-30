@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './modal.css';
 import { ModalProps } from '../types';
+import Button from '../button/button';
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -9,7 +10,8 @@ const Modal: React.FC<ModalProps> = ({
   placement = 'center',
   children,
   className = '',
-  rtl = false
+  rtl = false,
+  closeIcon
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -34,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({
           <div className="wd-modal-header">
             <h3 className="wd-modal-title">{title}</h3>
             <button className="wd-modal-close" onClick={onClose}>
-              ×
+              {closeIcon || '×'}
             </button>
           </div>
         )}

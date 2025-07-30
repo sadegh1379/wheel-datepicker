@@ -1,47 +1,55 @@
+:root {
+  /* Button base properties */
+  --wd-button-border-radius: 0.375rem;
+  --wd-button-font-weight: 500;
+  --wd-button-transition: all 0.15s ease-in-out;
+
+  /* Button sizes */
+  --wd-button-small-padding: 0.5rem 1rem;
+  --wd-button-small-font-size: 0.75rem;
+  --wd-button-medium-padding: 0.75rem 1.5rem;
+  --wd-button-medium-font-size: 0.875rem;
+  --wd-button-large-padding: 1rem 2rem;
+  --wd-button-large-font-size: 1rem;
+
+  /* Button colors */
+  --wd-button-secondary-hover-bg: #4b5563;
+  --wd-button-secondary-active-bg: #374151;
+}
+
 .wd-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 0.375rem;
-  font-weight: 500;
+  border-radius: var(--wd-button-border-radius);
+  font-weight: var(--wd-button-font-weight);
   cursor: pointer;
-  transition: all 0.15s ease-in-out;
+  transition: var(--wd-button-transition);
   text-decoration: none;
   user-select: none;
 }
 
-.wd-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* RTL Support */
-.wd-button-rtl {
-  direction: rtl;
-  text-align: right;
-}
-
 /* Size variants */
 .wd-button-small {
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+  padding: var(--wd-button-small-padding);
+  font-size: var(--wd-button-small-font-size);
 }
 
 .wd-button-medium {
-  padding: 0.75rem 1.5rem;
-  font-size: 0.875rem;
+  padding: var(--wd-button-medium-padding);
+  font-size: var(--wd-button-medium-font-size);
 }
 
 .wd-button-large {
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  padding: var(--wd-button-large-padding);
+  font-size: var(--wd-button-large-font-size);
 }
 
 .wd-button-secondary:hover:not(:disabled) {
-  background-color: #4b5563;
+  background-color: var(--wd-button-secondary-hover-bg);
 }
 
 .wd-button-secondary:active:not(:disabled) {
-  background-color: #374151;
+  background-color: var(--wd-button-secondary-active-bg);
 }

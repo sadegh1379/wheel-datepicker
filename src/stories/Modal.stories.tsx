@@ -9,7 +9,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalProps>> = ({ children,
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Button text="open modal" onClick={() => setIsOpen(true)}/>
+      <Button onClick={() => setIsOpen(true)}>open modal</Button>
       <Modal {...props} isOpen={isOpen} onClose={() => setIsOpen(false)}>
         {children}
       </Modal>
@@ -104,11 +104,28 @@ export const WithComplexContent: Story = {
           <li>Form elements</li>
         </ul>
         <div style={{ marginTop: '1rem' }}>
-          <Button text="Save" variant="primary" style={{ marginRight: '0.5rem' }}/>
-            
-          <Button variant="outline" text="Cancel" />
+          <Button>Save</Button>
+          <Button>Cancel</Button>
         </div>
       </div>
+    </ModalWrapper>
+  ),
+};
+
+export const WithCustomCloseIcon: Story = {
+  args: {
+    title: 'Custom Close Icon',
+    closeIcon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    ),
+  },
+  render: (args) => (
+    <ModalWrapper {...args}>
+      <p>This modal uses a custom close icon (X icon).</p>
+      <p>You can pass any React element as the closeIcon prop.</p>
     </ModalWrapper>
   ),
 };
