@@ -8,7 +8,7 @@
   --wd-modal-bg: #ffffff;
   --wd-modal-border-radius: 0.5rem;
   --wd-modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --wd-modal-max-width: 90vw;
+  --wd-modal-max-width: 40vw;
   --wd-modal-max-height: 90vh;
   --wd-modal-animation-duration: 0.2s;
 
@@ -156,4 +156,14 @@
   padding: var(--wd-modal-content-padding);
   overflow-y: auto;
   max-height: var(--wd-modal-content-max-height);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --wd-modal-max-width: 95vw;
+  }
+
+  .wd-modal-center {
+    max-width: var(--wd-modal-max-width);
+  }
 }

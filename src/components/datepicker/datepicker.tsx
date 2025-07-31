@@ -40,10 +40,10 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   maxYear: maxYearProp,
   className,
   input,
-  wheelPickerProps,
   modal,
   calendarType = "jalali",
-  button
+  button,
+  ...wheelPickerProps
 }) => {
   // Set RTL based on calendar type
   const rtl = calendarType === "jalali";

@@ -13,6 +13,8 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
   itemClassName,
   indicatorClassName,
   itemHeight,
+  indicatorBorderColor,
+  indicatorBorderWith
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeout = useRef<any>(null);
@@ -106,6 +108,8 @@ const ITEM_HEIGHT = itemHeight || 40
         style={{
           top: `${ITEM_HEIGHT * totalPadding}px`,
           height: `${ITEM_HEIGHT}px`,
+          borderColor: indicatorBorderColor,
+          borderWidth: indicatorBorderWith
         }}
       />
     </div>

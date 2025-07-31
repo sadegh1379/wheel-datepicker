@@ -9,7 +9,9 @@ interface WheelPickerProps {
   containerClassName?: string;
   className?: string;
   indicatorClassName?: string;
-  itemHeight?: number
+  itemHeight?: number;
+  indicatorBorderColor?: string;
+  indicatorBorderWith?: number;
 }
 
 interface InputProps {
@@ -43,17 +45,13 @@ interface ModalProps {
   closeIcon?: React.ReactNode;
 }
 
-interface DatepickerProps {
+interface DatepickerProps extends Omit<WheelPickerProps, 'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'> {
     value?: string;
     onChange?: (date: string) => void;
     minYear?: number;
     maxYear?: number;
     className?: string;
     calendarType?: 'jalali' | 'miladi';
-    wheelPickerProps?: Omit<
-      WheelPickerProps,
-      'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
-    >;
     input?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
     modal?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
     button?: Omit<ButtonProps, 'onClick' | 'children'>
