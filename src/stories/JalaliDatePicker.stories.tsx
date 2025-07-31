@@ -3,7 +3,7 @@ import { useState } from 'react';
 import WheelDatePicker from '../components/datepicker/datepicker';
 import { DatepickerProps } from '../components/types';
 
-const meta = {
+const meta: Meta<DatepickerProps> = {
   title: 'Components/Jalali/DatePicker',
   component: WheelDatePicker,
   parameters: {
@@ -30,17 +30,17 @@ const meta = {
     wheelPickerProps: {
       control: { type: 'object' },
     },
-    inputProps: {
+    input: {
       control: { type: 'object' },
     },
-    modalProps: {
+    modal: {
       control: { type: 'object' },
     },
-    buttonProps: {
+    button: {
       control: { type: 'object' },
     },
   },
-} satisfies Meta<typeof WheelDatePicker>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -60,21 +60,22 @@ const DatePickerWrapper = ({ ...props }: DatepickerProps) => {
 export const Default: Story = {
   args: {
     calendarType: 'jalali',
-    modalProps: {
-        title: "تاریخ"
+    modal: {
+      title: "تاریخ",
     }
   },
   render: (args) => (
-    <DatePickerWrapper modalProps={{ placement: "center" }} {...args}  />
+    <DatePickerWrapper modal={{ placement: "center" }} {...args}  />
   ),
 };
 
 export const WithLabel: Story = {
   args: {
     calendarType: 'jalali',
+    input: { label: "انتخاب تاریخ" },
   },
   render: (args) => (
-    <DatePickerWrapper {...args} inputProps={{ label: "انتخاب تاریخ" }} />
+    <DatePickerWrapper {...args} />
   ),
 };
 
@@ -83,9 +84,10 @@ export const WithCustomYearRange: Story = {
     calendarType: 'jalali',
     minYear: 1350,
     maxYear: 1410,
+    input: { label: "محدوده سال سفارشی" },
   },
   render: (args) => (
-    <DatePickerWrapper {...args} inputProps={{ label: "محدوده سال سفارشی" }} minYear={1350} maxYear={1410} />
+    <DatePickerWrapper {...args} minYear={1350} maxYear={1410} />
   ),
 };
 
@@ -109,8 +111,9 @@ export const WithInitialValue: Story = {
 export const WithCalendarType: Story = {
   args: {
     calendarType: 'jalali',
+    input: { label: "انتخاب تاریخ" },
   },
   render: (args) => (
-    <DatePickerWrapper {...args} inputProps={{ label: "انتخاب تاریخ" }} />
+    <DatePickerWrapper {...args} />
   ),
 }; 

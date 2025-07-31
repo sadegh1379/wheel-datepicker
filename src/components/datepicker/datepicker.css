@@ -1,21 +1,28 @@
+:root {
+  --wd-datepicker-gap: 0.5rem;
+  --wd-datepicker-padding-bottom: 0;
+  --wd-datepicker-text-align-rtl: right;
+}
+
 .wd-datepicker-modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-bottom: 0;
-  gap: 0.5rem;
+  padding-bottom: var(--wd-datepicker-padding-bottom);
+  gap: var(--wd-datepicker-gap);
 }
 
 .wd-datepicker-modal-content.wd-datepicker-rtl {
   direction: rtl;
-  text-align: right;
+  text-align: var(--wd-datepicker-text-align-rtl);
 }
 
 .wd-datepicker-wheels-container {
   display: flex;
   align-items: center;
   justify-content: stretch;
+  gap: 8px;
   width: 100%;
 }
 

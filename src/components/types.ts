@@ -54,9 +54,9 @@ interface DatepickerProps {
       WheelPickerProps,
       'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
     >;
-    inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
-    modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
-    buttonProps?: Omit<ButtonProps, 'onClick' | 'children'>
+    input?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
+    modal?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
+    button?: Omit<ButtonProps, 'onClick' | 'children'>
     
 }
 

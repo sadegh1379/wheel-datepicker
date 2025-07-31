@@ -3,7 +3,7 @@ import { useState } from 'react';
 import WheelDatePicker from '../components/datepicker/datepicker';
 import { DatepickerProps } from '../components/types';
 
-const meta = {
+const meta: Meta<DatepickerProps> = {
   title: 'Components/Miladi/DatePicker',
   component: WheelDatePicker,
   parameters: {
@@ -30,17 +30,17 @@ const meta = {
     wheelPickerProps: {
       control: { type: 'object' },
     },
-    inputProps: {
+    input: {
       control: { type: 'object' },
     },
-    modalProps: {
+    modal: {
       control: { type: 'object' },
     },
-    buttonProps: {
+    button: {
       control: { type: 'object' },
     },
   },
-} satisfies Meta<typeof WheelDatePicker>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -62,16 +62,17 @@ export const Default: Story = {
     calendarType: 'miladi',
   },
   render: (args) => (
-    <DatePickerWrapper modalProps={{ placement: "center" }} {...args}  />
+    <DatePickerWrapper modal={{ placement: "center" }} {...args}  />
   ),
 };
 
 export const WithLabel: Story = {
   args: {
     calendarType: 'miladi',
+    input: { label: "Select Date" },
   },
   render: (args) => (
-    <DatePickerWrapper {...args} inputProps={{ label: "Select Date" }} />
+    <DatePickerWrapper {...args} />
   ),
 };
 
@@ -80,9 +81,10 @@ export const WithCustomYearRange: Story = {
     calendarType: 'miladi',
     minYear: 1990,
     maxYear: 2030,
+    input: { label: "Custom Year Range" },
   },
   render: (args) => (
-    <DatePickerWrapper {...args} inputProps={{ label: "Custom Year Range" }} minYear={1990} maxYear={2030} />
+    <DatePickerWrapper {...args} />
   ),
 };
 

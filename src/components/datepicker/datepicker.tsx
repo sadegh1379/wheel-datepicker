@@ -39,11 +39,11 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   minYear = 1300,
   maxYear: maxYearProp,
   className,
-  inputProps,
+  input,
   wheelPickerProps,
-  modalProps,
+  modal,
   calendarType = "jalali",
-  buttonProps
+  button
 }) => {
   // Set RTL based on calendar type
   const rtl = calendarType === "jalali";
@@ -187,21 +187,21 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   return (
     <>
       <Input
-        name={inputProps?.name}
+        name={input?.name}
         readonly
         value={displayValue}
         onClick={() => setModalOpen(true)}
-        label={inputProps?.label}
+        label={input?.label}
         rtl={rtl}
-        {...inputProps}
+        {...input}
       />
       <Modal
         placement="bottom"
-        title={modalProps?.title}
+        title={modal?.title}
         isOpen={modalOpen}
         onClose={handleCancel}
         rtl={rtl}
-        {...modalProps}
+        {...modal}
       >
         <div className={`wd-datepicker-modal-content ${rtl ? 'wd-datepicker-rtl' : ''}`}>
           <div className={`wd-datepicker-wheels-container ${className || ''}`}>
@@ -211,7 +211,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
             className="wd-datepicker-confirm-button" 
             size="medium" 
             onClick={handleSet} 
-            {...buttonProps}
+            {...button}
           >تایید</Button>
         </div>
       </Modal>
