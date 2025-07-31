@@ -2,11 +2,10 @@
 
 ## 🎥 Demo
 
-### Jalali Calendar
-![Jalali Calendar Demo](./assets/jalali-demo.gif)
-
-### Gregorian(miladi) Calendar
-![Gregorian Calendar Demo](./assets/gregorian-demo.gif)
+<div align="center">
+  <img src="./assets/jalali-demo.gif" alt="Jalali Calendar Demo" width="45%" />
+  <img src="./assets/miladi-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="45%" />
+</div>
 
 A modern date picker component with a wheel picker interface, supporting both **Jalali (Persian)** and **Gregorian** calendars, with full **RTL support**.
 
