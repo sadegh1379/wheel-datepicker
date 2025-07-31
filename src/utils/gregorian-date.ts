@@ -1,5 +1,3 @@
-// Gregorian date utilities
-
 export type GregorianDate = {
   year: number;
   month: number; // 1-based (1 = January)
