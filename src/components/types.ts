@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 interface WheelPickerProps {
   items: string[];
   onChange?: (item: string) => void;
   value?: string;
-  visibleCount?: 1 | 3 | 5  | 7;
+  visibleCount?: 1 | 3 | 5 | 7;
   itemClassName?: string;
   containerClassName?: string;
   scrollContainerClassName?: string;
@@ -46,17 +46,20 @@ interface ModalProps {
   closeIcon?: React.ReactNode;
 }
 
-interface DatepickerProps extends Omit<WheelPickerProps, 'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'> {
-    value?: string;
-    onChange?: (date: string) => void;
-    minYear?: number;
-    maxYear?: number;
-    className?: string;
-    calendarType?: 'jalali' | 'miladi';
-    input?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
-    modal?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
-    button?: Omit<ButtonProps, 'onClick' | 'children'>
-    
+interface DatepickerProps
+  extends Omit<
+    WheelPickerProps,
+    'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
+  > {
+  value?: string;
+  onChange?: (date: string) => void;
+  minYear?: number;
+  maxYear?: number;
+  className?: string;
+  calendarType?: 'jalali' | 'miladi';
+  input?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
+  modal?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
+  button?: Omit<ButtonProps, 'onClick' | 'children'>;
 }
 
-export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps }
+export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps };
