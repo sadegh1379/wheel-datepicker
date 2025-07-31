@@ -2,7 +2,7 @@
 
 ## 🎥 Demo
 
-<div align="center">
+<div>
   <img src="./assets/jalali-demo.gif" alt="Jalali Calendar Demo" width="25%" />
   <img src="./assets/miladi-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="25%" />
 </div>
