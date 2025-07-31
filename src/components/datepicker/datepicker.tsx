@@ -4,29 +4,31 @@ import WheelPicker from '../wheel-picker/wheel-picker';
 import Input from '../input/input';
 import Modal from '../modal/modal';
 import Button from '../button/button';
-import { 
-  parseJalaliDate, 
-  formatJalaliDate, 
-  getCurrentJalaliDate, 
+import {
+  parseJalaliDate,
+  formatJalaliDate,
+  getCurrentJalaliDate,
   getDaysInJalaliMonth,
   isValidJalaliDate,
-  type JalaliDate 
+  type JalaliDate
 } from '../../utils/jalali-date';
+import {
+  parseGregorianDate,
+  formatGregorianDate,
+  getCurrentGregorianDate,
+  getDaysInGregorianMonth,
+  isValidGregorianDate,
+  type GregorianDate
+} from '../../utils/gregorian-date';
 import './datepicker.css';
 
-const months = [
-  'فروردین',
-  'اردیبهشت',
-  'خرداد',
-  'تیر',
-  'مرداد',
-  'شهریور',
-  'مهر',
-  'آبان',
-  'آذر',
-  'دی',
-  'بهمن',
-  'اسفند'
+const jalaliMonths = [
+  'فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور',
+  'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'
+];
+const gregorianMonths = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
 const WHEEL_DATE_FORMAT = 'jYYYY/jMM/jDD';
@@ -35,7 +37,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   value,
   onChange,
   minYear = 1300,
-  maxYear = getCurrentJalaliDate().year,
+  maxYear: maxYearProp,
   className,
   inputProps,
   wheelPickerProps,
@@ -45,78 +47,89 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
 }) => {
   // Set RTL based on calendar type
   const rtl = calendarType === "jalali";
-  // parse initial value or fallback to today
-  const initial = useMemo(() => {
+
+  // Select months array based on calendar type
+  const months = calendarType === "jalali" ? jalaliMonths : gregorianMonths;
+
+  // Set maxYear based on calendar type
+  const maxYear = useMemo(() => {
+    if (typeof maxYearProp === 'number') return maxYearProp;
+    return calendarType === 'jalali'
+      ? getCurrentJalaliDate().year
+      : getCurrentGregorianDate().year;
+  }, [calendarType, maxYearProp]);
+
+  // Always return a valid date object
+  const getValidInitial = () => {
     if (value) {
-      const parsed = parseJalaliDate(value);
-      if (parsed) return parsed;
+      if (calendarType === "jalali") {
+        return parseJalaliDate(value) || getCurrentJalaliDate();
+      } else {
+        return parseGregorianDate(value) || getCurrentGregorianDate();
+      }
     }
-    return getCurrentJalaliDate();
-  }, [value]);
+    return calendarType === "jalali"
+      ? getCurrentJalaliDate()
+      : getCurrentGregorianDate();
+  };
 
-  // state for the selected value (committed)
-  const [selected, setSelected] = useState({
-    year: initial.year,
-    month: initial.month,
-    day: initial.day
-  });
+  // State for the selected value (committed)
+  const [selected, setSelected] = useState<JalaliDate | GregorianDate>(getValidInitial);
 
-  // state for modal open/close
+  // State for modal open/close
   const [modalOpen, setModalOpen] = useState(false);
 
-  // state for the value being picked in modal (not committed until Set)
-  const [temp, setTemp] = useState(selected);
+  // State for the value being picked in modal (not committed until Set)
+  const [temp, setTemp] = useState<JalaliDate | GregorianDate>(selected);
 
-  //generate years
+  // Generate years array
   const years = useMemo(() => {
     const arr = [];
     for (let y = minYear; y <= maxYear; y++) arr.push(y.toString());
     return arr;
   }, [minYear, maxYear]);
 
-  // generate days based on month/year
+  // Generate days in month based on calendar type
   const daysInMonth = useMemo(() => {
-    return getDaysInJalaliMonth(temp.year, temp.month);
-  }, [temp.year, temp.month]);
+    return calendarType === "jalali"
+      ? getDaysInJalaliMonth((temp as JalaliDate).year, (temp as JalaliDate).month)
+      : getDaysInGregorianMonth((temp as GregorianDate).year, (temp as GregorianDate).month);
+  }, [temp, calendarType]);
+
   const days = useMemo(() => {
     return Array.from({ length: daysInMonth }, (_, i) => (i + 1).toString());
   }, [daysInMonth]);
 
-  // update temp.day if overflow
+  // Update temp.day if overflow
   useEffect(() => {
     if (temp.day > daysInMonth) setTemp(t => ({ ...t, day: daysInMonth }));
   }, [daysInMonth, temp.day]);
 
-  // when value or defaultValue prop changes, update selected and temp
-  // useEffect(() => {
-  //   if (value && moment(value, WHEEL_DATE_FORMAT, true).isValid()) {
-  //     const m = moment(value, WHEEL_DATE_FORMAT);
-  //     const newState = {
-  //       year: m.jYear(),
-  //       month: m.jMonth() + 1,
-  //       day: m.jDate()
-  //     };
-  //     console.log('value', value)
-  //     console.log('set temp and selected is use effect', newState)
-  //     setSelected(newState);
-  //     setTemp(newState);
-  //   }
-  // }, [value]);
-
-  // handlers for wheel pickers in modal
+  // Handlers for wheel pickers in modal
   const handleYearChange = (val: string) => setTemp(t => ({ ...t, year: Number(val) }));
   const handleMonthChange = (val: string) =>
-    setTemp(t => ({ ...t, month: months.indexOf(val) + 1 }));
+    setTemp(t => ({
+      ...t,
+      month: calendarType === "jalali"
+        ? jalaliMonths.indexOf(val) + 1
+        : gregorianMonths.indexOf(val) + 1
+    }));
   const handleDayChange = (val: string) => setTemp(t => ({ ...t, day: Number(val) }));
 
-  // handle Set/Cancel
+  // Handle Set/Cancel
   const handleSet = () => {
     setSelected(temp);
     setModalOpen(false);
-    
-    if (isValidJalaliDate(temp)) {
-      const dateString = formatJalaliDate(temp);
-      onChange?.(dateString);
+    if (calendarType === "jalali") {
+      if (isValidJalaliDate(temp as JalaliDate)) {
+        const dateString = formatJalaliDate(temp as JalaliDate);
+        onChange?.(dateString);
+      }
+    } else {
+      if (isValidGregorianDate(temp as GregorianDate)) {
+        const dateString = formatGregorianDate(temp as GregorianDate);
+        onChange?.(dateString);
+      }
     }
   };
   const handleCancel = () => {
@@ -124,13 +137,15 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
     setModalOpen(false);
   };
 
-  // display value for input
+  // Display value for input
   const displayValue = useMemo(() => {
     if (!value) return '';
-
-    const dateObj = { year: selected.year, month: selected.month, day: selected.day };
-    return isValidJalaliDate(dateObj) ? formatJalaliDate(dateObj) : '';
-  }, [selected]);
+    if (calendarType === "jalali") {
+      return isValidJalaliDate(selected as JalaliDate) ? formatJalaliDate(selected as JalaliDate) : '';
+    } else {
+      return isValidGregorianDate(selected as GregorianDate) ? formatGregorianDate(selected as GregorianDate) : '';
+    }
+  }, [selected, calendarType, value]);
 
   // Create wheel picker components
   const dayWheel = (
