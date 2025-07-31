@@ -135,4 +135,4 @@ MIT
 
 ## buy me a coffee
 
-<a href="https://www.coffeebede.com/sadegh79"><img class="img-fluid" src="https://coffeebede.ir/DashboardTemplateV2/app-assets/images/banner/default-yellow.svg" /></a>
+<a href="https://www.coffeebede.com/sadegh79"><img class="img-fluid" width="25%" src="https://coffeebede.ir/DashboardTemplateV2/app-assets/images/banner/default-yellow.svg" /></a>
