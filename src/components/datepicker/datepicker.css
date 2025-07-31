@@ -1,7 +1,7 @@
 :root {
-  --wd-datepicker-gap: 0.5rem;
-  --wd-datepicker-padding-bottom: 0;
-  --wd-datepicker-text-align-rtl: right;
+  --wd-datepicker-gap: 0.5rem; /* Space between datepicker elements */
+  --wd-datepicker-padding-bottom: 0; /* Padding at the bottom of the datepicker modal */
+  --wd-datepicker-text-align-rtl: right; /* Text alignment for RTL (Right-to-Left) mode */
 }
 
 .wd-datepicker-modal-content {
