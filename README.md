@@ -1,4 +1,4 @@
-# Nikaat Wheel Datepicker
+# Wheel Datepicker
 
 ## 🎥 Demo
 
@@ -67,7 +67,7 @@ function App() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `value` | string | - | The selected date in 'jYYYY/jMM/jDD' format |
+| `value` | string | - | The selected date in jYYYY/jMM/jDD or YYYY/MM/DD format |
 | `onChange` | (date: string) => void | - | Callback when date changes |
 | `minYear` | number | jalali(1300) miladi(1500) | Minimum selectable year |
 | `maxYear` | number | Current year | Maximum selectable year |
