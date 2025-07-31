@@ -7,7 +7,8 @@
   /* Modal container variables */
   --wd-modal-bg: #ffffff;
   --wd-modal-border-radius: 0.5rem;
-  --wd-modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --wd-modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --wd-modal-max-width: 40vw;
   --wd-modal-max-height: 90vh;
   --wd-modal-animation-duration: 0.2s;
@@ -15,7 +16,7 @@
   /* Modal bottom variant variables */
   --wd-modal-bottom-margin: 10px;
   --wd-modal-bottom-border-radius: 16px;
-  --wd-modal-bottom-shadow: 0 -2px 16px rgba(0,0,0,0.2);
+  --wd-modal-bottom-shadow: 0 -2px 16px rgba(0, 0, 0, 0.2);
   --wd-modal-bottom-animation-duration: 0.3s;
   --wd-modal-bottom-z-index: 1050;
 
@@ -102,7 +103,8 @@
   border-bottom-right-radius: 0;
   background: var(--wd-modal-bg);
   box-shadow: var(--wd-modal-bottom-shadow);
-  animation: slideUp var(--wd-modal-bottom-animation-duration) cubic-bezier(0.4,0,0.2,1);
+  animation: slideUp var(--wd-modal-bottom-animation-duration)
+    cubic-bezier(0.4, 0, 0.2, 1);
   z-index: var(--wd-modal-bottom-z-index);
 }
 
@@ -116,7 +118,8 @@
 }
 
 .wd-modal-bottom .wd-modal-header {
-  border-radius: var(--wd-modal-bottom-border-radius) var(--wd-modal-bottom-border-radius) 0 0;
+  border-radius: var(--wd-modal-bottom-border-radius)
+    var(--wd-modal-bottom-border-radius) 0 0;
 }
 
 .wd-modal-header {
@@ -133,7 +136,6 @@
   font-size: var(--wd-modal-title-font-size);
   font-weight: var(--wd-modal-title-font-weight);
   color: var(--wd-modal-title-color);
-
 }
 
 .wd-modal-close {

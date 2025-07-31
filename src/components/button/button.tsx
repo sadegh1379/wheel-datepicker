@@ -5,7 +5,7 @@ import "./button.css";
 const Button: React.FC<ButtonProps> = ({
   size = "medium",
   className = "",
-  children = '',
+  children = "",
   onClick,
   ...props
 }) => {

@@ -14,7 +14,6 @@
 }
 
 .wd-datepicker-modal-content.wd-datepicker-rtl {
-  direction: rtl;
   text-align: var(--wd-datepicker-text-align-rtl);
 }
 

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { WheelPickerProps } from "../types";
 import "./style.css";
 
-
 const WheelPicker: React.FC<WheelPickerProps> = ({
   items,
   onChange,
@@ -14,13 +13,12 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
   indicatorClassName,
   itemHeight,
   indicatorBorderColor,
-  indicatorBorderWith
+  indicatorBorderWith,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeout = useRef<any>(null);
 
-const ITEM_HEIGHT = itemHeight || 40
-
+  const ITEM_HEIGHT = itemHeight || 40;
 
   const totalPadding = Math.floor(visibleCount / 2);
   const paddedItems = [
@@ -85,7 +83,13 @@ const ITEM_HEIGHT = itemHeight || 40
           return (
             <div
               key={idx}
-              className={`wd-wheel-picker-item ${isSelected ? 'wd-wheel-picker-item-selected' : 'wd-wheel-picker-item-unselected'} ${isClickable ? 'wd-wheel-picker-item-clickable' : ''} ${itemClassName || ""}`}
+              className={`wd-wheel-picker-item ${
+                isSelected
+                  ? "wd-wheel-picker-item-selected"
+                  : "wd-wheel-picker-item-unselected"
+              } ${isClickable ? "wd-wheel-picker-item-clickable" : ""} ${
+                itemClassName || ""
+              }`}
               style={{ height: ITEM_HEIGHT }}
               onClick={
                 isClickable
@@ -109,7 +113,7 @@ const ITEM_HEIGHT = itemHeight || 40
           top: `${ITEM_HEIGHT * totalPadding}px`,
           height: `${ITEM_HEIGHT}px`,
           borderColor: indicatorBorderColor,
-          borderWidth: indicatorBorderWith
+          borderWidth: indicatorBorderWith,
         }}
       />
     </div>

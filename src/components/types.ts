@@ -32,6 +32,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   children: React.ReactNode;
+  text?: string;
 }
 
 interface ModalProps {
