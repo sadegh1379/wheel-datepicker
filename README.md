@@ -9,19 +9,26 @@
 
 A modern date picker component with a wheel picker interface, supporting both **Jalali (Persian)** and **Gregorian** calendars, with full **RTL support**.
 
-## Features
+## ✨ Features
 
-- Support for both **Jalali (Persian)** and **Gregorian (miladi)** calendars
-- Wheel picker interface for smooth and intuitive date selection
-- RTL (Right-to-Left) support for Persian/Arabic layouts
-- Customizable year range
-- Modal-based user interface
-- Responsive and mobile-friendly design
+- ✅ Support for both **Jalali (Persian)** and **Gregorian (Miladi)** calendars
+- 🎡 Smooth and intuitive **wheel-style date selection**
+- 🌐 Full **RTL (Right-to-Left)** support for Persian/Arabic languages
+- 🖼 **Modal-based interface** with customizable open direction:
+  - Open from **center** or **bottom** of the screen
+- 🔧 Customizable **year range**
+- 🎨 Custom input, button, and modal props for full UI control
+- 📱 **Responsive** and mobile-friendly design
 
 ## Installation
 
 ```bash
-npm install wheel-datepicker
+npm install @kitcore/wheel-datepicker
+```
+
+## Import CSS
+```tsx
+import '@kitcore/wheel-datepicker/dist/index.css';
 ```
 
 ## Usage
@@ -29,7 +36,8 @@ npm install wheel-datepicker
 ### Basic Usage
 
 ```tsx
-import WheelDatePicker from 'wheel-datepicker';
+import { WheelDatePicker } from '@kitcore/wheel-datepicker';
+import '@kitcore/wheel-datepicker/dist/index.css';
 
 function App() {
   const [date, setDate] = useState('');
@@ -42,26 +50,6 @@ function App() {
   );
 }
 ```
-
-### With RTL Support
-
-```tsx
-import WheelDatePicker from 'wheel-datepicker';
-
-function App() {
-  const [date, setDate] = useState('');
-
-  return (
-    <WheelDatePicker
-      value={date}
-      onChange={setDate}
-      rtl={true}
-      inputProps={{ label: "انتخاب تاریخ" }}
-    />
-  );
-}
-```
-
 ### With Custom Year Range
 
 ```tsx
@@ -75,28 +63,26 @@ function App() {
 ```
 
 ## Props
+### datepicker props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `value` | `string` | - | The selected date in 'jYYYY/jMM/jDD' format |
-| `onChange` | `(date: string) => void` | - | Callback when date changes |
-| `minYear` | `number` | `1300` | Minimum selectable year |
-| `maxYear` | `number` | Current year | Maximum selectable year |
-| `rtl` | `boolean` | `false` | Enable RTL (Right-to-Left) layout |
-| `className` | `string` | - | Additional CSS class for the component |
-| `inputProps` | `InputProps` | - | Props for the input field |
-| `wheelPickerProps` | `WheelPickerProps` | - | Props for wheel picker components |
-| `modalProps` | `ModalProps` | - | Props for the modal |
-| `buttonProps` | `ButtonProps` | - | Props for the confirm button |
-
-## RTL Support
-
-When `rtl={true}` is set:
-
-- Text direction changes to right-to-left
-- Wheel picker order changes to: Year → Month → Day (instead of Day → Month → Year)
-- All text alignment adjusts for RTL layout
-- Modal and input components adapt to RTL direction
+| `value` | string | - | The selected date in 'jYYYY/jMM/jDD' format |
+| `onChange` | (date: string) => void | - | Callback when date changes |
+| `minYear` | number | jalali(1300) miladi(1500) | Minimum selectable year |
+| `maxYear` | number | Current year | Maximum selectable year |
+| `calendarType` | miladi - jalali | jalali | Calendar type |
+| `visibleCount` | 1, 3, 5 , 7 | 3 | Count of visible item in Calendar 
+| `itemHeight` | number | 40px | Height of calendar item |
+| `indicatorBorderColor` | string | #e0e0e0 | Indicator top and bottom border color |
+| `indicatorBorderWidth` | string | 1px | Indicator top and bottom border width |
+| `className` | string | - | Additional CSS class for the component |
+| `indicatorClassName` | string | - | Additional CSS class for the component |
+| `scrollContainerClassName` | string | - | Additional CSS class for the component |
+| `itemClassName` | string | - | Additional CSS class for the component |
+| `input` | `InputProps` | - | Props for the input field |
+| `modal` | `ModalProps` | - | Props for the modal |
+| `button` | `ButtonProps` | - | Props for the confirm button |
 
 ## License
 

@@ -7,11 +7,11 @@ interface WheelPickerProps {
   visibleCount?: 1 | 3 | 5  | 7;
   itemClassName?: string;
   containerClassName?: string;
-  className?: string;
+  scrollContainerClassName?: string;
   indicatorClassName?: string;
   itemHeight?: number;
   indicatorBorderColor?: string;
-  indicatorBorderWith?: number;
+  indicatorBorderWidth?: number;
 }
 
 interface InputProps {

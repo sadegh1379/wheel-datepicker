@@ -7,13 +7,13 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
   onChange,
   visibleCount = 3,
   value,
-  className,
+  scrollContainerClassName,
   containerClassName,
   itemClassName,
   indicatorClassName,
   itemHeight,
   indicatorBorderColor,
-  indicatorBorderWith,
+  indicatorBorderWidth,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeout = useRef<any>(null);
@@ -70,7 +70,7 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className={`wd-wheel-picker-scroll ${className || ""}`}
+        className={`wd-wheel-picker-scroll ${scrollContainerClassName || ""}`}
         style={{ height: "100%" }}
       >
         {paddedItems.map((item, idx) => {
@@ -113,7 +113,7 @@ const WheelPicker: React.FC<WheelPickerProps> = ({
           top: `${ITEM_HEIGHT * totalPadding}px`,
           height: `${ITEM_HEIGHT}px`,
           borderColor: indicatorBorderColor,
-          borderWidth: indicatorBorderWith,
+          borderWidth: indicatorBorderWidth,
         }}
       />
     </div>
