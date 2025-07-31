@@ -1,15 +1,23 @@
 # Nikaat Wheel Datepicker
 
-A Persian/Jalali date picker component with wheel picker interface and RTL support.
+## 🎥 Demo
+
+### Jalali Calendar
+![Jalali Calendar Demo](./assets/jalali-demo.gif)
+
+### Gregorian(miladi) Calendar
+![Gregorian Calendar Demo](./assets/gregorian-demo.gif)
+
+A modern date picker component with a wheel picker interface, supporting both **Jalali (Persian)** and **Gregorian** calendars, with full **RTL support**.
 
 ## Features
 
-- Persian/Jalali calendar support
-- Wheel picker interface for smooth date selection
-- RTL (Right-to-Left) support for Arabic/Persian languages
+- Support for both **Jalali (Persian)** and **Gregorian (miladi)** calendars
+- Wheel picker interface for smooth and intuitive date selection
+- RTL (Right-to-Left) support for Persian/Arabic layouts
 - Customizable year range
-- Modal-based interface
-- Responsive design
+- Modal-based user interface
+- Responsive and mobile-friendly design
 
 ## Installation
 
