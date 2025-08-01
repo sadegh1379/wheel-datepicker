@@ -27,8 +27,7 @@ and **Gregorian (Mialdi)** calendars, with full **RTL support**.
   <img src="https://i.postimg.cc/nzc8t5p5/jalali-demo.gif" alt="Jalali Calendar Demo" width="23%" />
   <img src="https://i.postimg.cc/pdBN4xbz/miladi-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="23%" />
   <img src="https://i.postimg.cc/0NvRVj39/miladi-center-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="23%" />
-  <img src="https://i.postimg.cc/MpVJ0V9s/jalali-center-demo.gif
-" alt="Gregorian(miladi) Calendar Demo" width="23%" />
+  <img src="https://i.postimg.cc/MpVJ0V9s/jalali-center-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="23%" />
 </div>
 
 ## ✨ Features
