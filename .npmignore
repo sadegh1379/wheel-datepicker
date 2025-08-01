@@ -3,3 +3,8 @@ src
 rollup.config.js
 tsconfig.json
 .gitignore
+.storybook/
+.vscode/
+.prettierrc.json
+release.js
+vercel.json
