@@ -24,10 +24,10 @@ and **Gregorian (Mialdi)** calendars, with full **RTL support**.
 ## 🎥 Demo
 
 <div>
-  <img src="./assets/jalali-demo.gif" alt="Jalali Calendar Demo" width="25%" />
-  <img src="./assets/miladi-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="25%" />
-  <img src="./assets/jalali-center-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="25%" />
-  <img src="./assets/miladi-center-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="25%" />
+  <img src="./assets/jalali-demo.gif" alt="Jalali Calendar Demo" width="23%" />
+  <img src="./assets/miladi-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="23%" />
+  <img src="./assets/jalali-center-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="23%" />
+  <img src="./assets/miladi-center-demo.gif" alt="Gregorian(miladi) Calendar Demo" width="23%" />
 </div>
 
 ## ✨ Features
