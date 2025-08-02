@@ -62,4 +62,8 @@ interface DatepickerProps
   button?: Omit<ButtonProps, 'onClick' | 'children'>;
 }
 
-export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps };
+type DatepickerInputProps = Pick<DatepickerProps, 'input'>;
+type DatepickerModalProps = Pick<DatepickerProps, 'modal'>;
+type DatepickerButtonProps = Pick<DatepickerProps, 'button'>;
+
+export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps, DatepickerButtonProps, DatepickerInputProps, DatepickerModalProps };
