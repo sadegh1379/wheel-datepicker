@@ -46,6 +46,10 @@ interface ModalProps {
   closeIcon?: React.ReactNode;
 }
 
+type DatepickerInputProps = Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
+type DatepickerModalProps = Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
+type DatepickerButtonProps = Omit<ButtonProps, 'onClick' | 'children'>;
+
 interface DatepickerProps
   extends Omit<
     WheelPickerProps,
@@ -57,13 +61,11 @@ interface DatepickerProps
   maxYear?: number;
   className?: string;
   calendarType?: 'jalali' | 'miladi';
-  input?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
-  modal?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
-  button?: Omit<ButtonProps, 'onClick' | 'children'>;
+  input?: DatepickerInputProps;
+  modal?: DatepickerModalProps;
+  button?: DatepickerButtonProps;
 }
 
-type DatepickerInputProps = Pick<DatepickerProps, 'input'>;
-type DatepickerModalProps = Pick<DatepickerProps, 'modal'>;
-type DatepickerButtonProps = Pick<DatepickerProps, 'button'>;
+
 
 export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps, DatepickerButtonProps, DatepickerInputProps, DatepickerModalProps };
