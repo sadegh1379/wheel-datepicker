@@ -231,7 +231,6 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
     <>
       <Input
         name={input?.name}
-        readonly
         value={displayValue}
         onClick={() => setModalOpen(true)}
         label={input?.label}
