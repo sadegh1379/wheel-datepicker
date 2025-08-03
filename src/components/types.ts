@@ -22,7 +22,6 @@ interface InputProps {
   disabled?: boolean;
   value?: string;
   name?: string;
-  readonly?: boolean;
   onClick?: () => void;
   rtl?: boolean;
 }

@@ -3,7 +3,7 @@ import { InputProps } from "../types";
 import "./input.css";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, className = "", value, rtl = false, ...props }, ref) => {
+  ({ label, error, className = "", value, name, rtl = false, ...props }, ref) => {
     return (
       <div
         className={`wd-input-container ${
@@ -18,6 +18,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           type="text"
           value={value}
           dir={rtl ? "rtl" : "ltr"}
+          name={name || 'date'}
           {...props}
         />
         {error && <span className="wd-input-error-message">{error}</span>}
