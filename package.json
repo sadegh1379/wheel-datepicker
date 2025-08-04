@@ -8,9 +8,7 @@
   "scripts": {
     "release": "node release.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test-storybook": "test-storybook --watch=false",
-    "test": "npm run build-storybook && npm run test-storybook"
+    "build-storybook": "storybook build"
   },
   "author": "Buildix Team",
   "license": "ISC",
