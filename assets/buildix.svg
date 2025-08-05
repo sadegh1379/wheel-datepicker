@@ -1,0 +1,38 @@
+<svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 width="80px" height="80px" viewBox="0 0 32 32" xml:space="preserve">
+<style type="text/css">
+	.isometric_vijf{fill:#F29227;}
+	.isometric_zes{fill:#F28103;}
+	.isometric_zeven{fill:#FF7344;}
+	.isometric_acht{fill:#F05A28;}
+	.isometric_negen{fill:#BE1E2D;}
+	.isometric_tien{fill:#7BD6C4;}
+	.isometric_elf{fill:#72C0AB;}
+	.isometric_twaalf{fill:#569080;}
+	.st0{fill:#225B49;}
+	.st1{fill:#F8F7C5;}
+	.st2{fill:#BE1E2D;}
+	.st3{fill:#AD9A74;}
+	.st4{fill:#F2D76C;}
+	.st5{fill:#F5DF89;}
+	.st6{fill:#7BD6C4;}
+	.st7{fill:#80CCBE;}
+</style>
+<g>
+	<line class="isometric_twaalf" x1="10" y1="20.356" x2="16" y2="16.923"/>
+	<polygon class="isometric_acht" points="4,16.915 10,13.466 16,16.923 10,20.356 	"/>
+	<polygon class="isometric_negen" points="10,28 16,24.536 16,16.923 10,20.356 	"/>
+	<line class="isometric_twaalf" x1="10" y1="20.356" x2="16" y2="16.923"/>
+	<polygon class="isometric_acht" points="4,16.915 10,13.466 16,16.923 10,20.356 	"/>
+	<polygon class="isometric_negen" points="10,28 16,24.536 16,16.923 10,20.356 	"/>
+	<polygon class="isometric_zeven" points="10,28 4,24.536 4,16.915 10,20.356 	"/>
+	<line class="isometric_twaalf" x1="22" y1="20.379" x2="27.962" y2="16.915"/>
+	<polygon class="isometric_zes" points="16,16.923 21.962,13.456 27.962,16.915 22,20.379 	"/>
+	<polygon class="isometric_vijf" points="22,28 16,24.536 16,16.923 22,20.379 	"/>
+	<polygon class="isometric_acht" points="22,28 27.962,24.536 27.962,16.915 22,20.379 	"/>
+	<line class="isometric_twaalf" x1="16" y1="9.323" x2="21.962" y2="5.865"/>
+	<polygon class="isometric_elf" points="10,5.865 16.037,2.406 21.962,5.865 16,9.323 	"/>
+	<polygon class="isometric_twaalf" points="16,16.923 21.962,13.456 21.962,5.865 16,9.323 	"/>
+	<polygon class="isometric_tien" points="16,16.923 10,13.466 10,5.865 16,9.323 	"/>
+</g>
+</svg>

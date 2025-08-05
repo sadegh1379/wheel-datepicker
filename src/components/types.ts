@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react';
 
 interface WheelPickerProps {
   items: string[];
   onChange?: (item: string) => void;
   value?: string;
-  visibleCount?: number;
+  visibleCount?: 1 | 3 | 5 | 7;
   itemClassName?: string;
   containerClassName?: string;
-  className?: string;
+  scrollContainerClassName?: string;
   indicatorClassName?: string;
-  itemHeight?: number
+  itemHeight?: number;
+  indicatorBorderColor?: string;
+  indicatorBorderWidth?: number;
 }
 
 interface InputProps {
@@ -20,18 +22,16 @@ interface InputProps {
   disabled?: boolean;
   value?: string;
   name?: string;
-  readonly?: boolean;
   onClick?: () => void;
   rtl?: boolean;
 }
 
 interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'outline';
   className?: string;
-  style?: React.CSSProperties;
   onClick?: () => void;
-  text: React.ReactNode;
+  children: React.ReactNode;
+  text?: string;
 }
 
 interface ModalProps {
@@ -42,23 +42,29 @@ interface ModalProps {
   children: React.ReactNode;
   className?: string;
   rtl?: boolean;
+  closeIcon?: React.ReactNode;
 }
 
-interface DatepickerProps {
-    value?: string;
-    onChange?: (date: string) => void;
-    minYear?: number;
-    maxYear?: number;
-    className?: string;
-    rtl?: boolean;
-    wheelPickerProps?: Omit<
+type DatepickerInputProps = Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
+type DatepickerModalProps = Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
+type DatepickerButtonProps = Omit<ButtonProps, 'onClick' | 'children'>;
+
+interface DatepickerProps
+  extends Omit<
     WheelPickerProps,
-      'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
-    >;
-    inputProps?: Omit<InputProps, 'onChange' | 'onClick' | 'readOnly' | 'value'>;
-    modalProps?: Omit<ModalProps, 'isOpen' | 'onClose' | 'children'>;
-    buttonProps?: Omit<ButtonProps, 'onClick'>
-    
+    'onChange' | 'defaultValue' | 'items' | 'containerClassName' | 'defaultValue'
+  > {
+  value?: string;
+  onChange?: (date: string) => void;
+  minYear?: number;
+  maxYear?: number;
+  className?: string;
+  calendarType?: 'jalali' | 'miladi';
+  input?: DatepickerInputProps;
+  modal?: DatepickerModalProps;
+  button?: DatepickerButtonProps;
 }
 
-export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps }
+
+
+export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps, DatepickerButtonProps, DatepickerInputProps, DatepickerModalProps };

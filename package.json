@@ -1,6 +1,6 @@
 {
-  "name": "@nikaat-corp/wheel-datepicker",
-  "version": "0.0.20",
+  "name": "@buildix/wheel-datepicker",
+  "version": "0.0.11-beta",
   "description": "A modern, customizable wheel datepicker component for React applications, offering intuitive date selection with a smooth scrolling interface.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -11,7 +11,7 @@
     "build-storybook": "storybook build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Skenas Team",
+  "author": "Buildix Team",
   "license": "ISC",
   "publishConfig": {
     "access": "public"
@@ -45,14 +45,16 @@
     "datepicker",
     "wheel",
     "date-picker",
+    "persian-wheel-picker",
+    "persian-datepicker",
+    "jalali-datepicker",
     "wheel-datepicker",
     "date",
     "picker",
-    "scroll"
+    "scroll-picker"
   ],
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "dependencies": {}
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  }
 }

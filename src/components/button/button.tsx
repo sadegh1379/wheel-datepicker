@@ -5,16 +5,15 @@ import "./button.css";
 const Button: React.FC<ButtonProps> = ({
   size = "medium",
   className = "",
-  text = '',
+  children = "",
   onClick,
-  style,
   ...props
 }) => {
   const buttonClasses = `wd-button wd-button-${size} ${className}`;
 
   return (
-    <button style={style} onClick={onClick} className={buttonClasses} {...props}>
-      {text}
+    <button onClick={onClick} className={buttonClasses} {...props}>
+      {children}
     </button>
   );
 };

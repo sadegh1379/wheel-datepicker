@@ -2,23 +2,23 @@ import React, { useEffect, useRef, useState } from "react";
 import { WheelPickerProps } from "../types";
 import "./style.css";
 
-
 const WheelPicker: React.FC<WheelPickerProps> = ({
   items,
   onChange,
   visibleCount = 3,
   value,
-  className,
+  scrollContainerClassName,
   containerClassName,
   itemClassName,
   indicatorClassName,
   itemHeight,
+  indicatorBorderColor,
+  indicatorBorderWidth,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scrollTimeout = useRef<any>(null);
 
-const ITEM_HEIGHT = itemHeight || 40
-
+  const ITEM_HEIGHT = itemHeight || 40;
 
   const totalPadding = Math.floor(visibleCount / 2);
   const paddedItems = [
@@ -70,7 +70,7 @@ const ITEM_HEIGHT = itemHeight || 40
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className={`wd-wheel-picker-scroll ${className || ""}`}
+        className={`wd-wheel-picker-scroll ${scrollContainerClassName || ""}`}
         style={{ height: "100%" }}
       >
         {paddedItems.map((item, idx) => {
@@ -83,7 +83,13 @@ const ITEM_HEIGHT = itemHeight || 40
           return (
             <div
               key={idx}
-              className={`wd-wheel-picker-item ${isSelected ? 'wd-wheel-picker-item-selected' : 'wd-wheel-picker-item-unselected'} ${isClickable ? 'wd-wheel-picker-item-clickable' : ''} ${itemClassName || ""}`}
+              className={`wd-wheel-picker-item ${
+                isSelected
+                  ? "wd-wheel-picker-item-selected"
+                  : "wd-wheel-picker-item-unselected"
+              } ${isClickable ? "wd-wheel-picker-item-clickable" : ""} ${
+                itemClassName || ""
+              }`}
               style={{ height: ITEM_HEIGHT }}
               onClick={
                 isClickable
@@ -106,6 +112,8 @@ const ITEM_HEIGHT = itemHeight || 40
         style={{
           top: `${ITEM_HEIGHT * totalPadding}px`,
           height: `${ITEM_HEIGHT}px`,
+          borderColor: indicatorBorderColor,
+          borderWidth: indicatorBorderWidth,
         }}
       />
     </div>

@@ -1,5 +1,5 @@
 :root {
-  /* Colors */
+  /* input Colors */
   --wd-input-border-color: #d1d5db;
   --wd-input-border-error-color: #ef4444;
   --wd-input-background-color: #ffffff;
@@ -8,19 +8,19 @@
   --wd-input-text-disabled-color: #6b7280;
   --wd-input-label-color: #374151;
   --wd-input-error-text-color: #ef4444;
-  
-  /* Spacing */
+
+  /* input Spacing */
   --wd-input-gap: 0.3rem;
   --wd-input-padding: 0.75rem;
   --wd-input-border-radius: 0.375rem;
-  --wd-input-error-margin-top: 0.10rem;
-  
-  /* Typography */
+  --wd-input-error-margin-top: 0.1rem;
+
+  /* input Typography */
   --wd-input-font-size: 0.875rem;
   --wd-input-error-font-size: 0.75rem;
   --wd-input-font-weight: 500;
-  
-  /* Effects */
+
+  /* input Effects */
   --wd-input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   --wd-input-error-focus-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
   --wd-input-border-width: 1px;
