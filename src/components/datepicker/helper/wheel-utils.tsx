@@ -1,7 +1,7 @@
 import React from 'react';
 import WheelPicker from '../../wheel-picker/wheel-picker';
 import { WheelPickerProps } from '../../types';
-import { jalaliMonths, gregorianMonths } from './constants';
+import { jalaliMonths, gregorianMonths } from '../constants/constants';
 import { CalendarType } from './date-utils';
 
 export const generateYears = (minYear: number, maxYear: number): string[] => {
