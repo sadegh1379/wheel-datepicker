@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { getCurrentGregorianDate } from '../../../utils/gregorian-date';
-import { getCurrentJalaliDate } from '../../../utils/jalali-date';
 import { DEFAULT_MIN_YEARS } from '../constants/calendar-data';
+import { getCurrentJalaliDate } from '../../../utils/jalali-date';
+import { getCurrentGregorianDate } from '../../../utils/gregorian-date';
 
 interface UseDateRangeProps {
   minYear?: number;

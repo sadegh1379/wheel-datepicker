@@ -7,7 +7,6 @@ const config: StorybookConfig = {
     '../src/**/*.mdx',
     '../src/**/stories/*.stories.@(js|jsx|mjs|ts|tsx)',
     ...(!isProduction ? ['../src/**/__test__/*.stories.@(js|jsx|mjs|ts|tsx)'] : [])
-    
   ],
   'addons': ['@storybook/addon-webpack5-compiler-swc', '@storybook/addon-docs'],
   'framework': {

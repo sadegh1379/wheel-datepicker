@@ -1,8 +1,10 @@
 import { useMemo } from 'react';
-import { GregorianDate } from '../../../utils/gregorian-date';
-import { JalaliDate } from '../../../utils/jalali-date';
-import { formatGregorianDate, isValidGregorianDate } from '../../../utils/gregorian-date';
-import { formatJalaliDate, isValidJalaliDate } from '../../../utils/jalali-date';
+import { formatJalaliDate, isValidJalaliDate, JalaliDate } from '../../../utils/jalali-date';
+import {
+  formatGregorianDate,
+  GregorianDate,
+  isValidGregorianDate
+} from '../../../utils/gregorian-date';
 
 interface UseDateValidationProps {
   selected: JalaliDate | GregorianDate;
