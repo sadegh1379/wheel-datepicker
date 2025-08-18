@@ -8,8 +8,7 @@
   "scripts": {
     "release": "node release.js",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-storybook": "storybook build"
   },
   "author": "Buildix Team",
   "license": "ISC",
@@ -23,7 +22,9 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-docs": "^9.0.18",
     "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
+    "@storybook/jest": "^0.2.2",
     "@storybook/react-webpack5": "^9.0.18",
+    "@storybook/testing-library": "^0.2.1",
     "@types/moment-jalaali": "^0.7.9",
     "@types/react": "^18.3.3",
     "inquirer": "^8.2.6",

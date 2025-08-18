@@ -65,6 +65,13 @@ interface DatepickerProps
   button?: DatepickerButtonProps;
 }
 
-
-
-export type { WheelPickerProps, InputProps, ButtonProps, DatepickerProps, ModalProps, DatepickerButtonProps, DatepickerInputProps, DatepickerModalProps };
+export type {
+  WheelPickerProps,
+  InputProps,
+  ButtonProps,
+  DatepickerProps,
+  ModalProps,
+  DatepickerButtonProps,
+  DatepickerInputProps,
+  DatepickerModalProps
+};
